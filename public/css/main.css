@@ -15,14 +15,17 @@
 
 .navbar-custom a {
     color: #dfe6e9;
+    text-decoration: none;
 }
 
 .navbar-custom a:hover  {
     color: #ffaa5a;
+    text-decoration: none;
 }
 
-.navbar-custom a:active  {
+.navbar-custom a:active a:visited a:focus {
     color: #ffaa5a; 
+    text-decoration: none;
 }
 
 .landing-page-block-dark {
