@@ -33,6 +33,12 @@ class Account extends Model
         'date_created',
         'account_role',
     ];
+
+    // Mutator
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
 }
 
 
@@ -42,7 +48,7 @@ account_id SERIAL PRIMARY KEY,
 	password VARCHAR(60) NOT NULL ,
 	first_name VARCHAR(50) NOT NULL,
 	last_name VARCHAR(100) NOT NULL,
-	phone_number VARCHAR(20) NOT NULL,
+	phone_number VARCHAR(20),
 	date_created DATE NOT NULL DEFAULT CURRENT_DATE,
 	account_role CHAR(1) NOT NULL DEFAULT 'U' CHECK (account_role IN ('A', 'U')) 
 */
