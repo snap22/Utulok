@@ -14,7 +14,7 @@ class StoreAccountRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,9 +28,9 @@ class StoreAccountRequest extends FormRequest
             "first_name" => ["required", "min:3", "max:50"],
             "last_name" => ["required", "min:3", "max:50"],
             "email" => ["required", "min:5", "max:100", Rule::unique("account", "email")],
-            "phone_number" => ["max:20"],
-            "password" => ["required", "min:7", "max:60"],
-            "confirm_password" => ["required", "min:7", "max:60"],
+            "phone_number" => ["max:20", "nullable"],
+            "password" => ["required", "confirmed", "min:6", "max:60"],
+            // "password_confirmation" => ["required", "min:6", "max:60"],
         ];
     }
 }
