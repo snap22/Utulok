@@ -19,7 +19,9 @@ class AccountController extends Controller
         $validated = $request->validated();
         
         $asd = Account::create($validated);
-        
+
+        session()->flash('success', 'Váš účet bol vytvorený!');
+
         return redirect("/");
     }
 
