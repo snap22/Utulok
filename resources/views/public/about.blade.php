@@ -1,9 +1,5 @@
 @extends('layouts.basic')
 
-@section('css-links')
-    <link rel="stylesheet" href="css/about.css">
-@endsection
-
 
 @section('title', 'About Us')
 
