@@ -10,11 +10,12 @@
             <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav  menu-item">
-            <a class="nav-link" href="/">Domov</a>
-            <a class="nav-link" href="/about">O nás</a>
-            <a class="nav-link" href="/contact">Kontakty</a>
-        </div>
+            <div class="navbar-nav  menu-item">
+                <a class="nav-link" href="/">Domov</a>
+                <a class="nav-link" href="/about">O nás</a>
+                <a class="nav-link" href="/contact">Kontakty</a>
+                <a class="nav-link ml-auto" href="/register">Registrácia</a>
+            </div>
         </div>
     </div>
 </nav>
