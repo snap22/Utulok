@@ -7,9 +7,6 @@
 @section('body')
 
     <div class="container-fluid landing-page-block-light">
-        <h1>
-            Hello World!
-        </h1>
         <div class="container">
             <form method="POST" action="/register">
                 @csrf
