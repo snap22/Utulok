@@ -19,6 +19,6 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [HomeController::class, 'about']);
 Route::get('/contact', [HomeController::class, 'contact']);
 
-Route::get('/register', [AccountController::class, 'create']);
-Route::post('/register', [AccountController::class, 'store']);
+Route::get('/register', [AccountController::class, 'create'])->middleware('guest');
+Route::post('/register', [AccountController::class, 'store'])->middleware('guest');
 
