@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAccountRequest;
 use App\Models\Account;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,9 @@ class AccountController extends Controller
     {
         $validated = $request->validated();
         
-        $asd = Account::create($validated);
+        $user = Account::create($validated);
+
+        Auth::login($user);
 
         session()->flash('success', 'Váš účet bol vytvorený!');
 
