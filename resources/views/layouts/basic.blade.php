@@ -12,10 +12,6 @@
     
     <link rel="stylesheet" href="css/main.css">
 
-    @section('css-links')
-
-    @show
-
     <title>Wouff - @yield('title')</title>
 </head>
 <body>
