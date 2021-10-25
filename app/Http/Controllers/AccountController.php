@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAccountRequest;
+use App\Models\Account;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -11,10 +14,13 @@ class AccountController extends Controller
         return view('account.register');
     }
 
-    public function store()
+    public function store(StoreAccountRequest $request)
     {
-        var_dump(request()->all());
-        // return "Hello world";
+        $validated = $request->validated();
+        
+        $asd = Account::create($validated);
+        
+        return redirect("/");
     }
 
     public function login()
