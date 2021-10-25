@@ -10,12 +10,22 @@
             <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav  menu-item">
+            <div class="navbar-nav  menu-item me-auto">
                 <a class="nav-link" href="/">Domov</a>
                 <a class="nav-link" href="/about">O nás</a>
-                <a class="nav-link" href="/contact">Kontakty</a>
-                <a class="nav-link ml-auto" href="/register">Registrácia</a>
+                <a class="nav-link" href="/contact">Kontakty</a>  
+                <a class="nav-link" href="/">Ponuka</a>  
             </div>
+            <div class="navbar-nav  menu-item">
+                @guest
+                    <a class="nav-link" href="/login"> Prihlásenie </a>
+                    <a class="nav-link" href="/register"> Registrácia </a>
+                @else
+                    <a class="nav-link" href="/">{{ ucwords(auth()->user()->first_name) . ' ' . ucwords(auth()->user()->last_name)  }}</a>
+                    <a class="nav-link" href="/logout">Odhlásiť</a>
+                @endguest
+            </div>
+            
         </div>
     </div>
 </nav>
