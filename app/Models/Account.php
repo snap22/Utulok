@@ -40,16 +40,9 @@ class Account extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($password);
     }
+
+    // public function isAdmin()
+    // {
+    //     return $this->attributes['account_role'] === 'A';
+    // }
 }
-
-
-/*
-account_id SERIAL PRIMARY KEY,
-	email VARCHAR(100) NOT NULL UNIQUE,
-	password VARCHAR(60) NOT NULL ,
-	first_name VARCHAR(50) NOT NULL,
-	last_name VARCHAR(100) NOT NULL,
-	phone_number VARCHAR(20),
-	date_created DATE NOT NULL DEFAULT CURRENT_DATE,
-	account_role CHAR(1) NOT NULL DEFAULT 'U' CHECK (account_role IN ('A', 'U')) 
-*/
