@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,4 +27,6 @@ Route::get('/login', [AccountController::class, 'login'])->middleware('guest');
 Route::post('/login', [AccountController::class, 'authenticate'])->middleware('guest');
 
 Route::get('/logout', [AccountController::class, 'logout'])->middleware('auth');
+
+Route::get('/admin', [AdminController::class, 'index'])->middleware('admin');
 
