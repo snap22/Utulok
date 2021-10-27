@@ -23,10 +23,18 @@ Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/register', [AccountController::class, 'create'])->middleware('guest');
 Route::post('/register', [AccountController::class, 'store'])->middleware('guest');
 
-Route::get('/login', [AccountController::class, 'login'])->middleware('guest');
+Route::get('/login', [AccountController::class, 'login'])->middleware('guest')->name('login');
 Route::post('/login', [AccountController::class, 'authenticate'])->middleware('guest');
 
 Route::get('/logout', [AccountController::class, 'logout'])->middleware('auth');
+
+Route::get('/profile', [AccountController::class, 'profileView'])->middleware('auth');
+
+
+
+
+
+
 
 Route::get('/admin', [AdminController::class, 'index'])->middleware('admin');
 
