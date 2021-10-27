@@ -53,7 +53,17 @@ class AccountController extends Controller
         return redirect('/')->with('success', 'Dovidenia!');
     }
 
-    public function profile()
+    public function profileView()
+    {
+        return view('account.profile-view', ['user' => Auth::user()]);
+    }
+
+    public function profileEdit()
+    {
+
+    }
+
+    public function profileStore()
     {
 
     }
