@@ -21,7 +21,7 @@
                     <a class="nav-link" href="/login"> Prihlásenie </a>
                     <a class="nav-link" href="/register"> Registrácia </a>
                 @else
-                    <a class="nav-link" href="/">{{ ucwords(auth()->user()->first_name) . ' ' . ucwords(auth()->user()->last_name)  }}</a>
+                    <a class="nav-link" href="/profile">{{ ucwords(auth()->user()->first_name) . ' ' . ucwords(auth()->user()->last_name)  }}</a>
                     <a class="nav-link" href="/logout">Odhlásiť</a>
                 @endguest
             </div>
