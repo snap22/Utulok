@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\AccountController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\AccountController as AdminAccController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,8 +43,8 @@ Route::post('/profile/edit/password', [AccountController::class, 'updatePassword
 
 
 
-
-
+// ****     Admin Panel     ****
 
 Route::get('/admin', [AdminController::class, 'index'])->middleware('admin');
+Route::get('/admin/users', [AdminAccController::class, 'viewAll'])->middleware('admin');
 
