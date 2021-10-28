@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthenticateAccountRequest;
+use App\Http\Requests\EditProfileRequest;
 use App\Http\Requests\StoreAccountRequest;
 use App\Models\Account;
 use Illuminate\Support\Facades\Hash;
@@ -61,12 +62,17 @@ class AccountController extends Controller
 
     public function edit()
     {
-        // returns a view with the form
+        return view('account.profile-edit', ['user' => Auth::user()]);
     }
 
-    public function update()
+    public function update(EditProfileRequest $request)
     {
-        // updates the values
+        $attributes = $request->validated();
+
+        $user = Account::find(Auth::user()->account_id);
+        $user->update($attributes);
+
+        return redirect('/profile')->with('success', 'Informácie boli aktualizované!');
     }
 
     public function destroy()
