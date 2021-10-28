@@ -39,7 +39,7 @@
                 <div class="col-sm">
                 
                     <a href="/profile/edit" class="btn btn-info"> Upraviť údaje </a> 
-                    <a href="#" class="btn btn-warning"> Zmeniť heslo </a> 
+                    <a href="/profile/edit/password" class="btn btn-warning"> Zmeniť heslo </a> 
 
                     <form method="POST" action="/profile">
                         @csrf
