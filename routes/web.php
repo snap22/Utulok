@@ -28,7 +28,13 @@ Route::post('/login', [AccountController::class, 'authenticate'])->middleware('g
 
 Route::get('/logout', [AccountController::class, 'logout'])->middleware('auth');
 
-Route::get('/profile', [AccountController::class, 'profileView'])->middleware('auth');
+Route::get('/confirm-password',[AccountController::class, 'confirmPassword'] )->middleware('auth')->name('password.confirm');
+Route::post('/confirm-password',[AccountController::class, 'validatePassword'] )->middleware('auth')->name('password.confirm');
+
+Route::get('/profile', [AccountController::class, 'inspect'])->middleware('auth');
+
+
+Route::delete('/profile', [AccountController::class, 'destroy'])->middleware('auth')->middleware(['password.confirm']);
 
 
 
