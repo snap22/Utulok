@@ -22,18 +22,16 @@ Route::get('/contact', [HomeController::class, 'contact']);
 
 Route::get('/register', [AccountController::class, 'create'])->middleware('guest');
 Route::post('/register', [AccountController::class, 'store'])->middleware('guest');
-
 Route::get('/login', [AccountController::class, 'login'])->middleware('guest')->name('login');
 Route::post('/login', [AccountController::class, 'authenticate'])->middleware('guest');
-
 Route::get('/logout', [AccountController::class, 'logout'])->middleware('auth');
 
 Route::get('/confirm-password',[AccountController::class, 'confirmPassword'] )->middleware('auth')->name('password.confirm');
 Route::post('/confirm-password',[AccountController::class, 'validatePassword'] )->middleware('auth')->name('password.confirm');
 
 Route::get('/profile', [AccountController::class, 'inspect'])->middleware('auth');
-
-
+Route::get('/profile/edit', [AccountController::class, 'edit'])->middleware('auth');
+Route::put('/profile/edit', [AccountController::class, 'update'])->middleware('auth');
 Route::delete('/profile', [AccountController::class, 'destroy'])->middleware('auth')->middleware(['password.confirm']);
 
 
