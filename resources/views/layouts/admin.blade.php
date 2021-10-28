@@ -15,33 +15,7 @@
 </head>
 <body>
 
-    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
-    <div class="admin-navbar">
-        <ul id="slide-out" class="sidenav sidenav-fixed cyan darken-1 ">
-            <li>
-                <a href="#!" class="blue-grey-text text-darken-4" > 
-                    <i class="blue-grey-text text-darken-4 material-icons small">insert_chart</i>
-                    Dashboard
-                </a>
-            </li>
-            <li>
-                <a href="#!" class="blue-grey-text text-darken-4">
-                    <i class="blue-grey-text text-darken-4 material-icons small">people</i> Users</a></li>
-            <li>
-                <a href="#!" class="blue-grey-text text-darken-4">
-                    <i class="blue-grey-text text-darken-4 material-icons small">pets</i>
-                    Dogs
-                </a>
-            </li>
-            <li>
-                <a href="#!" class="blue-grey-text text-darken-4">
-                    <i class="blue-grey-text text-darken-4 material-icons small">assignment</i>
-                    Adoptions
-                </a>
-            </li>
-        </ul>
-    </div>
+    <x-admin.admin-navbar />
 
     @yield('body')  
     
