@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthenticateAccountRequest;
+use App\Http\Requests\ChangePasswordRequest;
 use App\Http\Requests\EditProfileRequest;
+use App\Http\Requests\PasswordChangeRequest;
 use App\Http\Requests\StoreAccountRequest;
 use App\Models\Account;
 use Illuminate\Support\Facades\Hash;
@@ -69,7 +71,7 @@ class AccountController extends Controller
     {
         $attributes = $request->validated();
 
-        $user = Account::find(Auth::user()->account_id);
+        $user = $this->getCurrentAccount();
         $user->update($attributes);
 
         return redirect('/profile')->with('success', 'Informácie boli aktualizované!');
@@ -77,7 +79,7 @@ class AccountController extends Controller
 
     public function destroy()
     {
-        $user = Account::find(Auth::user()->account_id);
+        $user = $this->getCurrentAccount();
 
         Auth::logout();
 
@@ -94,9 +96,7 @@ class AccountController extends Controller
     {
         if (! Hash::check($request->password, Auth::user()->password) )
         {
-            return back()->withErrors([
-                'password' => 'Neplatné heslo!'
-            ]);
+            return back()->withErrors(['password' => 'Neplatné heslo!']);
         }
 
         $request->session()->passwordConfirmed();
@@ -104,4 +104,31 @@ class AccountController extends Controller
 
         return redirect()->intended()->with('success', 'Heslo bolo overené, môžete pokračovať.');
     }
+
+    public function changePassword()
+    {
+        return view('account.change-password');
+    }
+
+    public function updatePassword(ChangePasswordRequest $request)
+    {
+        $attributes = $request->validated();
+
+        if (! Hash::check($request->password, Auth::user()->password) )
+        {
+            return back()->withErrors(['password' => 'Neplatné heslo!']);
+        }
+
+        $user = $this->getCurrentAccount();
+        $user->password = $attributes['new_password'];
+        $user->save();
+
+        return redirect('/profile')->with('success','Heslo úspešne bolo zmenené!');
+    }
+
+    private function getCurrentAccount()
+    {
+        return Account::find(Auth::user()->account_id);
+    }
+    
 }
