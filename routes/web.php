@@ -34,6 +34,9 @@ Route::get('/profile/edit', [AccountController::class, 'edit'])->middleware('aut
 Route::put('/profile/edit', [AccountController::class, 'update'])->middleware('auth');
 Route::delete('/profile', [AccountController::class, 'destroy'])->middleware('auth')->middleware(['password.confirm']);
 
+Route::get('/profile/edit/password', [AccountController::class, 'changePassword'])->middleware('auth');
+Route::post('/profile/edit/password', [AccountController::class, 'updatePassword'])->middleware('auth');
+
 
 
 
