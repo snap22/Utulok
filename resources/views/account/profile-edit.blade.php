@@ -25,7 +25,7 @@
                 <div class="row mt-2 mb-1">
                     <div class="col-6">
                         <x-form-input type="email" name="email" placeholder="Email" :value="old('email', $user->email)"/> <br>
-                        <x-form-input type="text" name="phone_number" placeholder="Telefónne Číslo" :value="old('phone_number', $user->phone_nubmber)"/>  <br>
+                        <x-form-input type="text" name="phone_number" placeholder="Telefónne Číslo" :value="old('phone_number', $user->phone_number)"/>  <br>
                         <button type="submit" class="btn btn-primary mt-3">Zmeniť údaje</button>
                     </div>
                 </div>     
