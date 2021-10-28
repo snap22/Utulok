@@ -39,7 +39,11 @@
                 <div class="col-sm">
                     <a href="#" class="btn btn-info"> Upraviť údaje </a> 
                     <a href="#" class="btn btn-warning"> Zmeniť heslo </a> 
-                    <a href="#" class="btn btn-danger"> Zmazať účet </a>
+                    <form method="POST" action="/profile">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit"> Zmazať účet </button>
+                    </form>
 
                 </div>
             </div>
