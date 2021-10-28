@@ -6,7 +6,7 @@
         <a class="subheader"> <b>Admin Panel</b> </a>
     </li>
     <li>
-        <a href="#!" class="blue-grey-text text-darken-4" > 
+        <a href="/admin" class="blue-grey-text text-darken-4" > 
             <i class="blue-grey-text text-darken-4 material-icons small">insert_chart</i>
             <b>Domov</b> 
         </a>
