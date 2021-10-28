@@ -30,7 +30,6 @@ class StoreAccountRequest extends FormRequest
             "email" => ["required", "min:5", "max:100", "email",  Rule::unique("account", "email")],
             "phone_number" => ["max:20", "nullable"],
             "password" => ["required", "confirmed", "min:6", "max:60"],
-            // "password_confirmation" => ["required", "min:6", "max:60"],
         ];
     }
 }
