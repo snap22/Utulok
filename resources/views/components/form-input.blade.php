@@ -1,9 +1,9 @@
-@props(['name', 'type' => 'text', 'placeholder'])
+@props(['name', 'value' => '', 'type' => 'text', 'placeholder'])
 
-<input  value="{{ old($name) }}" 
-        name="{{ $name }}" 
+<input  name="{{ $name }}" 
         type="{{ $type }}" 
         placeholder="{{ $placeholder }}" 
+        value="{{ $value }}"
         {{ $attributes->merge(['class' => "form-control"]) }} >
 
 @error(  $name  )
