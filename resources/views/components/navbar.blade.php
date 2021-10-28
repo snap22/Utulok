@@ -22,6 +22,11 @@
                     <a class="nav-link" href="/register"> Registrácia </a>
                 @else
                     <a class="nav-link" href="/profile">{{ ucwords(auth()->user()->first_name) . ' ' . ucwords(auth()->user()->last_name)  }}</a>
+                    
+                    @if (Auth::user()->account_role === 'A')
+                        <a class="nav-link text-danger" href="/admin">Admin Panel</a>
+                    @endif
+
                     <a class="nav-link" href="/logout">Odhlásiť</a>
                 @endguest
             </div>
