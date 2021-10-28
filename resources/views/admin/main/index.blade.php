@@ -5,12 +5,12 @@
 
 @section('body')
 
-<div class="container">
+<div class="">
     <div class="section">
 
-      <!--   Icon Section   -->
+      
       <div class="row">
-        <div class="col s10 offset-s2">
+        <div class="col s12">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons large">flash_on</i></h2>
             <h4 class="center">Počet psov</h4>
@@ -19,7 +19,7 @@
           </div>
         </div>
 
-        <div class="col s10 offset-s2"">
+        <div class="col s12">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons large">group</i></h2>
             <h4 class="center">Počet používateľov</h4>
@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        <div class="col s10 offset-s2"">
+        <div class="col s12">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons large">settings</i></h2>
             <h4 class="center">Počet adopcií</h4>
