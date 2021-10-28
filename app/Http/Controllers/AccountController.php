@@ -17,7 +17,7 @@ class AccountController extends Controller
 {
     public function create()
     {
-        return view('account.register');
+        return view('public.account.register');
     }
 
     public function store(StoreAccountRequest $request)
@@ -35,7 +35,7 @@ class AccountController extends Controller
 
     public function login()
     {
-        return view('account.login');
+        return view('public.account.login');
     }
 
     public function authenticate(AuthenticateAccountRequest $request)
@@ -59,12 +59,12 @@ class AccountController extends Controller
 
     public function inspect()
     {
-        return view('account.profile-view', ['user' => Auth::user()]);
+        return view('public.account.profile-view', ['user' => Auth::user()]);
     }
 
     public function edit()
     {
-        return view('account.profile-edit', ['user' => Auth::user()]);
+        return view('public.account.profile-edit', ['user' => Auth::user()]);
     }
 
     public function update(EditProfileRequest $request)
@@ -89,7 +89,7 @@ class AccountController extends Controller
 
     public function confirmPassword()
     {
-        return view('account.confirm-password');
+        return view('public.account.confirm-password');
     }
 
     public function validatePassword(Request $request)
@@ -107,7 +107,7 @@ class AccountController extends Controller
 
     public function changePassword()
     {
-        return view('account.change-password');
+        return view('public.account.change-password');
     }
 
     public function updatePassword(ChangePasswordRequest $request)
