@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-sm navbar-custom">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="images/logo_1.png" alt="" width="35" height="35" class="d-inline-block align-text-top">
+            <img src="/images/logo_1.png" alt="" width="35" height="35" class="d-inline-block align-text-top">
         </a>
         <button class="navbar-toggler menu-item" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <!-- <span class="navbar-toggler-icon"></span> -->
