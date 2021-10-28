@@ -17,7 +17,14 @@
 
     <x-admin.admin-navbar />
 
-    @yield('body')  
+    <div class="container">
+      <div class="row">
+        <div class="col s10 offset-s2">
+          @yield('body') 
+        </div>
+      </div>
+    </div>
+     
     
 
 
