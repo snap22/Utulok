@@ -2,7 +2,7 @@
 
 
 
-@section('title', 'Profil')
+@section('title', 'Profile')
 
 @section('body')
 
@@ -37,8 +37,10 @@
             </div>
             <div class="row mt-5">
                 <div class="col-sm">
-                    <a href="#" class="btn btn-info"> Upraviť údaje </a> 
+                
+                    <a href="/profile/edit" class="btn btn-info"> Upraviť údaje </a> 
                     <a href="#" class="btn btn-warning"> Zmeniť heslo </a> 
+
                     <form method="POST" action="/profile">
                         @csrf
                         @method('DELETE')
