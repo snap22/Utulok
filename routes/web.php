@@ -47,5 +47,13 @@ Route::post('/profile/edit/password', [AccountController::class, 'updatePassword
 
 Route::get('/admin', [AdminController::class, 'index'])->middleware('admin');
 Route::get('/admin/accounts', [AdminAccController::class, 'viewAll'])->middleware('admin')->name('accounts.view.all');
-Route::get('/admin/accounts/{accountId}', [AdminAccController::class, 'view'])->middleware('admin')->where('accountId', '[0-9]+')->name('accounts.view');
+Route::get('/admin/accounts/{accountId}', [AdminAccController::class, 'view'])
+    ->middleware('admin')->where('accountId', '[0-9]+')->name('accounts.view');
+Route::get('/admin/accounts/{accountId}/edit', [AdminAccController::class, 'edit'])
+    ->middleware('admin')->where('accountId', '[0-9]+')->name('accounts.edit');
+Route::put('/admin/accounts/{accountId}/edit', [AdminAccController::class, 'update'])
+    ->middleware('admin')->where('accountId', '[0-9]+')->name('accounts.update');
+Route::delete('/admin/accounts/{accountId}', [AdminAccController::class, 'destroy'])
+    ->middleware('admin')->where('accountId', '[0-9]+')->name('accounts.delete');
+
 
