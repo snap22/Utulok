@@ -12,7 +12,7 @@
         </a>
     </li>
     <li>
-        <a href="/admin/users" class="blue-grey-text text-darken-4">
+        <a href="{{ route('accounts.view.all') }}" class="blue-grey-text text-darken-4">
             <i class="blue-grey-text text-darken-4 material-icons small">people</i> 
             <b>Používatelia</b>
         </a>
