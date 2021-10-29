@@ -10,7 +10,7 @@
     <label for="{{ $name }}">{{ $label }}</label>
 
     @error( $name )
-        <span class="helper-text" data-error="{{ $message }}" data-success="right"></span>
+        <span class="helper-text red-text" >{{ $message }}</span>
     @enderror
 </div>
 
