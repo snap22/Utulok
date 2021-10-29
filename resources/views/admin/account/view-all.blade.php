@@ -28,8 +28,8 @@
             <td> {{ $user->last_name }} </td>
             <td class="right-align">
                 <a href="{{ route('accounts.view', ['accountId' => $user->account_id]) }}"><i class="material-icons blue-grey-text">visibility</i> </a>
-                <a href="#"><i class="material-icons light-blue-text">create</i> </a>
-                <a href="#"><i class="material-icons deep-orange-text">delete</i> </a>
+                <a href="{{ route('accounts.edit', ['accountId' => $user->account_id]) }}"><i class="material-icons light-blue-text">create</i> </a>
+                <a href="{{ route('accounts.delete', ['accountId' => $user->account_id]) }}"><i class="material-icons deep-orange-text">delete</i> </a>
             </td>
         </tr>
         @endforeach
