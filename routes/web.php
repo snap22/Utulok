@@ -46,6 +46,6 @@ Route::post('/profile/edit/password', [AccountController::class, 'updatePassword
 // ****     Admin Panel     ****
 
 Route::get('/admin', [AdminController::class, 'index'])->middleware('admin');
-Route::get('/admin/users', [AdminAccController::class, 'viewAll'])->middleware('admin');
-Route::get('/admin/users/{accountId}', [AdminAccController::class, 'view'])->middleware('admin')->where('accountId', '[0-9]+');
+Route::get('/admin/accounts', [AdminAccController::class, 'viewAll'])->middleware('admin')->name('accounts.view.all');
+Route::get('/admin/accounts/{accountId}', [AdminAccController::class, 'view'])->middleware('admin')->where('accountId', '[0-9]+')->name('accounts.view');
 
