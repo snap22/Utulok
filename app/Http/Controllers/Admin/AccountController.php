@@ -19,4 +19,11 @@ class AccountController extends Controller
 
         return view('admin.account.view-all', ['users' => $users]);
     }
+
+    public function view($accountId)
+    {
+        $user = Account::findOrFail($accountId);
+
+        return view('admin.account.view-profile', ['user' => $user]);
+    }
 }
