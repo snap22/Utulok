@@ -13,7 +13,9 @@ class Account extends Authenticatable
     protected $table = "account";
     protected $primaryKey = "account_id";
     // vypnutie automatickeho zadavania hodnot created_at & updated_at do tabulky
-    public $timestamps = false;     
+    public $timestamps = false;   
+     
+    protected $attributes = ['is_admin'];
 
     protected $fillable = [
         'email',
@@ -39,6 +41,11 @@ class Account extends Authenticatable
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function getIsAdminAttribute()
+    {
+        return $this->account_role === 'A';
     }
 
     // public function isAdmin()
