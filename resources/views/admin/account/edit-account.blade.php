@@ -38,9 +38,7 @@
               <a href="{{ route('accounts.view.all') }}" class="btn waves-effect waves-light deep-orange">Zrušiť
                 <i class="material-icons right">cancel</i>
               </a>
-              <!-- <button class="btn waves-effect waves-light deep-orange" type="reset" name="">Zrušiť
-                <i class="material-icons right">cancel</i>
-              </button> -->
+              
           </form>
           
 
