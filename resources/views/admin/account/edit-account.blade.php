@@ -14,11 +14,10 @@
               @csrf
               @method('PUT')
 
-              <x-admin.admin-input name="first_name" :value="$user->first_name" label="Krstné Meno"   />
-              <x-admin.admin-input name="last_name" :value="$user->last_name" label="Priezvisko"   />
-              <x-admin.admin-input name="email" :value="$user->email" label="Email"   />
-              <x-admin.admin-input name="phone_number" :value="$user->phone_number" label="Kontakt"   />
-              <x-admin.admin-input name="email" :value="$user->email" label="Email"   />
+              <x-admin.admin-input name="first_name" :value="old('first_name', $user->first_name)" label="Krstné Meno"   />
+              <x-admin.admin-input name="last_name" :value="old('last_name', $user->last_name)" label="Priezvisko"   />
+              <x-admin.admin-input name="email" :value="old('email', $user->email)" label="Email"   />
+              <x-admin.admin-input name="phone_number" :value="old('phone_number', $user->phone_number)" label="Kontakt"   />
 
               <div class="input-field">
                 <select name="account_role">
@@ -27,7 +26,11 @@
                   <option value="U">Používateľ</option>
                 </select>
                 <label>Rola</label>
+                @error( 'account_role' )
+                    <span class="helper-text red-text">{{ $message }}</span>
+                @enderror
               </div>
+              
 
               <button class="btn waves-effect waves-light green" type="submit" name="">Uložiť
                 <i class="material-icons right">check</i>
@@ -39,8 +42,6 @@
                 <i class="material-icons right">cancel</i>
               </button> -->
           </form>
-          
-
           
 
           
