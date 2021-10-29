@@ -26,4 +26,21 @@ class AccountController extends Controller
 
         return view('admin.account.view-profile', ['user' => $user]);
     }
+
+    public function edit($accountId)
+    {
+        $user = Account::findOrFail($accountId);
+        
+        return view('admin.account.edit-profile', ['user' => $user]);
+    }
+
+    public function update($accountId)
+    {
+        $user = Account::findOrFail($accountId);
+    }
+
+    public function destroy($accountId)
+    {
+        $user = Account::findOrFail($accountId);
+    }
 }
