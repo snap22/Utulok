@@ -14,7 +14,7 @@
               <div class="col s4">
                 <div class="right-align ">
                   
-                  <a class="btn-floating btn waves-effect waves-light light-blue"><i class="material-icons">create</i></a>
+                  <a href="{{ route('accounts.edit', ['accountId' => $user->account_id]) }}" class="btn-floating btn waves-effect waves-light light-blue"><i class="material-icons">create</i></a>
                   <a class="btn-floating btn waves-effect waves-light deep-orange"><i class="material-icons">delete</i></a>
                 </div>
           
