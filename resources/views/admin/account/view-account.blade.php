@@ -13,9 +13,11 @@
 
               <div class="col s4">
                 <div class="right-align ">
-                  
-                  <a href="{{ route('accounts.edit', ['accountId' => $user->account_id]) }}" class="btn-floating btn waves-effect waves-light light-blue"><i class="material-icons">create</i></a>
-                  <x-admin.buttons.delete :link="route('accounts.delete', ['accountId' => $user->account_id])" />
+                  <x-admin.controls.controls-all 
+                    :editLink="route('accounts.edit', ['accountId' => $user->account_id])" 
+                    :deleteLink="route('accounts.delete', ['accountId' => $user->account_id])" 
+                    btnStyle="btn-flat btn-large white"
+                  />
                 </div>
           
               </div>
