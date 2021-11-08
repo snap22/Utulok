@@ -5,7 +5,7 @@ use App\Http\Controllers\User\HomeController;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\AccountController as AdminAccController;
-
+use App\Http\Controllers\Admin\DogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,5 +55,8 @@ Route::put('/admin/accounts/{accountId}/edit', [AdminAccController::class, 'upda
     ->middleware('admin')->where('accountId', '[0-9]+')->name('accounts.update');
 Route::delete('/admin/accounts/{accountId}', [AdminAccController::class, 'destroy'])
     ->middleware('admin')->where('accountId', '[0-9]+')->name('accounts.delete');
+
+Route::get('/admin/dogs', [DogController::class, 'viewAll'])->middleware('admin')->name('dogs.view.all');
+Route::get('/admin/dogs/{dogId}', [DogController::class, 'view'])->middleware('admin')->where('dogId', '[0-9]+')->name('dogs.view');
 
 
