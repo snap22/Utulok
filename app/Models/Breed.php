@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Breed extends Model
 {
     use HasFactory;
+
+    protected $table = "breed";
+    protected $primaryKey = "breed_id";
+
+    protected $fillable = [
+        'name',
+    ];
 }
