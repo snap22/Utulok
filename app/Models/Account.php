@@ -47,9 +47,4 @@ class Account extends Authenticatable
     {
         return $this->account_role === 'A';
     }
-
-    // public function isAdmin()
-    // {
-    //     return $this->attributes['account_role'] === 'A';
-    // }
 }
