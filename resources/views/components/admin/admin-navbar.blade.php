@@ -18,7 +18,7 @@
         </a>
     </li>
     <li>
-        <a href="#!" class="blue-grey-text text-darken-4">
+        <a href="{{ route('dogs.view.all') }}" class="blue-grey-text text-darken-4">
             <i class="blue-grey-text text-darken-4 material-icons small">pets</i>
             <b>Psy</b> 
         </a>
