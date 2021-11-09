@@ -58,5 +58,8 @@ Route::delete('/admin/accounts/{accountId}', [AdminAccController::class, 'destro
 
 Route::get('/admin/dogs', [DogController::class, 'viewAll'])->middleware('admin')->name('dogs.view.all');
 Route::get('/admin/dogs/{dogId}', [DogController::class, 'view'])->middleware('admin')->where('dogId', '[0-9]+')->name('dogs.view');
-
-
+Route::get('/admin/dogs/create', [DogController::class, 'create'])->middleware('admin')->name('dogs.create');
+Route::post('/admin/dogs/create', [DogController::class, 'store'])->middleware('admin')->name('dogs.store');
+Route::get('/admin/dogs/{dogId}/edit', [DogController::class, 'edit'])->middleware('admin')->where('dogId', '[0-9]+')->name('dogs.edit');
+Route::put('/admin/dogs/{dogId}/edit', [DogController::class, 'update'])->middleware('admin')->where('dogId', '[0-9]+')->name('dogs.update');
+Route::delete('/admin/dogs/{dogId}', [DogController::class, 'destroy'])->middleware('admin')->where('dogId', '[0-9]+')->name('dogs.delete');
