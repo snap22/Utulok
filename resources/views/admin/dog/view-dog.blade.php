@@ -13,8 +13,8 @@
               <div class="col s4">
                 <div class="right-align ">
                   <x-admin.controls.controls-all 
-                    :editLink="'#'" 
-                    :deleteLink="'#'" 
+                    :editLink="route('dogs.edit', ['dogId' => $dog->dog_id])" 
+                    :deleteLink="route('dogs.delete', ['dogId' => $dog->dog_id])" 
                     btnStyle="btn-flat btn-large white"
                   />
                 </div>
