@@ -3,8 +3,20 @@
 @section('body')
 
    
-<h4> Psy </h4>
+<div class="row">
+    <div class="col s10">
+        <h4> Psy </h4>
+    </div>
+    <div class="col ">
+        <a href="{{ route('dogs.create') }}" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
+    </div>
+
+    
+</div>
 <hr>
+
+
+
 
 <table class="striped centered">
     <thead>
@@ -29,8 +41,8 @@
                 /> -->
                 <x-admin.controls.controls-all 
                     :viewLink="route('dogs.view', ['dogId' => $dog->dog_id])" 
-                    :editLink="'#'" 
-                    :deleteLink="'#'" 
+                    :editLink="route('dogs.edit', ['dogId' => $dog->dog_id])" 
+                    :deleteLink="route('dogs.delete', ['dogId' => $dog->dog_id])" 
                 />
             </td>
         </tr>
