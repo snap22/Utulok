@@ -12,6 +12,8 @@ class Dog extends Model
     protected $table = "dog";
     protected $primaryKey = "dog_id";
 
+    public $timestamps = false;   
+
     protected $fillable = [
         'name',
         'gender',
@@ -29,6 +31,14 @@ class Dog extends Model
     public function getBreedAttribute()
     {
         return Breed::find($this->breed_id)->name;
+    }
+
+    public function setPictureAttribute()
+    {
+        if (empty($this->attributes['picture']))
+        {
+            $this->attributes['picture'] = 'dog_default.png';
+        }
     }
 
 }
