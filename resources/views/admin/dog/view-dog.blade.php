@@ -8,7 +8,7 @@
         <div class="card-content">
           <div class="row">
               <div class="col s8">
-                <h4> Informácie </h4>
+                <!-- <h4> Informácie </h4> -->
               </div>
               <div class="col s4">
                 <div class="right-align ">
@@ -21,10 +21,6 @@
           
               </div>
           </div>
-          
-
-          
-
           <div class="divider"></div>
           <div class="">
             <div class="">
