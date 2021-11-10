@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\admin\StoreDogRequest;
-use Illuminate\Support\Facades\DB;
 use App\Models\Dog;
 use App\Models\Breed;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Config;
+use App\Http\Requests\admin\StoreDogRequest;
 
 class DogController extends Controller
 {
@@ -33,7 +34,17 @@ class DogController extends Controller
     public function store(StoreDogRequest $request)
     {
         $validated = $request->validated();
+        // dd($validated);
+        
+        if ($validated['picture'] != config('constants.default_picture'))
+        {
+            $path = $request->file('picture')->store('dogs');
+            $validated['picture'] = $path;
+        }
+        
+        dd($validated);
         Dog::create($validated);
+        
         
         return $this->viewAll();
     }
@@ -52,7 +63,7 @@ class DogController extends Controller
         $validated = $request->validated();
 
         $dog->update($validated);
-
+        // TODO: update image
         return $this->viewAll();
     }
 
@@ -60,6 +71,7 @@ class DogController extends Controller
     {
         $dog = Dog::findOrFail($dogId);
         $dog->delete();
+        // TODO: remove image
         return $this->viewAll();
     }
 }
