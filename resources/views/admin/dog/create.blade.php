@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col s8">
           
-          <form action="{{ route('dogs.store') }}" method="POST">
+          <form action="{{ route('dogs.store') }}" method="POST" enctype="multipart/form-data">
               @csrf
               
 
@@ -40,6 +40,9 @@
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text">
                     </div>
+                    @error( 'picture' )
+                      <span class="helper-text red-text">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="input-field ">

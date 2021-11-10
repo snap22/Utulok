@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col s8">
           
-          <form action="{{ route('dogs.update', ['dogId' => $dog->dog_id]) }}" method="POST">
+          <form action="{{ route('dogs.update', ['dogId' => $dog->dog_id]) }}" method="POST" enctype="multipart/form-data">
               @csrf
               @method('PUT')
 
@@ -49,6 +49,9 @@
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" value="{{ $dog->picture }}">
                     </div>
+                    @error( 'picture' )
+                      <span class="helper-text red-text">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="input-field ">
