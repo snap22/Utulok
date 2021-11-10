@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Dog extends Model
 {
@@ -37,7 +38,7 @@ class Dog extends Model
     {
         if (empty($this->attributes['picture']))
         {
-            $this->attributes['picture'] = 'dog_default.png';
+            $this->attributes['picture'] = config('constants.default_picture');
         }
     }
 
