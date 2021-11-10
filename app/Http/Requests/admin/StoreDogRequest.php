@@ -30,7 +30,7 @@ class StoreDogRequest extends FormRequest
             "gender" => ["required", Rule::in(['F', 'M'])],
             "breed_id" => ["max:20", "nullable"],
             "info" => ["max:100", "nullable"],
-            "picture" => ["image", "nullable", "max:30"],
+            "picture" => ["image", "nullable", "max:10240"],
         ];
     }
 }
