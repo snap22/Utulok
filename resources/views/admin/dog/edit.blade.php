@@ -16,8 +16,13 @@
               
                 <div class="input-field">
                     <select name="gender">
-                        <option selected value="M">Samec</option>
-                        <option value="F">Samica</option>
+                        @if ($dog->gender == "M")
+                          <option selected value="M">Samec</option>
+                          <option value="F">Samica</option>
+                        @else
+                          <option  value="M">Samec</option>
+                          <option selected value="F">Samica</option>
+                        @endif
                     </select>
                     <label>Pohlavie</label>
                 </div>
@@ -42,7 +47,7 @@
                         <input type="file" name="picture" value="{{ old('picture', $dog->picture) }}">
                     </div>
                     <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
+                        <input class="file-path validate" type="text" value="{{ $dog->picture }}">
                     </div>
                 </div>
 
