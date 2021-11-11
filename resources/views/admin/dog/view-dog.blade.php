@@ -9,6 +9,7 @@
           <div class="row">
               <div class="col s8">
                 <!-- <h4> Informácie </h4> -->
+                <a href="{{ route('dogs.view.all') }}" class="btn btn-large btn-flat white"><i class="material-icons">keyboard_arrow_left</i></a>
               </div>
               <div class="col s4">
                 <div class="right-align ">
@@ -56,6 +57,8 @@
                 
                 
               </table>
+
+              <img class="responsive-img" width="200px"  height="200px" src="{{ asset('storage/' . $dog->picture) }}" alt="Obrázok psa">
             </div> 
             
 
