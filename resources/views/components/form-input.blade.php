@@ -6,8 +6,10 @@
         value="{{ $value }}"
         {{ $attributes->merge(['class' => "form-control"]) }} >
 
-@error(  $name  )
-    <div class="text-danger">
-        <p class="text-sm"> {{ $message }} </p>
-    </div>
-@enderror
+<div class="text-danger">
+    <p class="text-sm"> 
+        @error(  $name  )
+            {{ $message }} 
+        @enderror
+    </p>
+</div>
