@@ -34,13 +34,6 @@ class Dog extends Model
         return Breed::find($this->breed_id)->name;
     }
 
-    public function setPictureAttribute()
-    {
-        if (empty($this->attributes['picture']))
-        {
-            $this->attributes['picture'] = config('constants.default_picture');
-        }
-    }
 
 }
 
