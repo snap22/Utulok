@@ -2,16 +2,25 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Custom\Repositories\PictureRepository;
 use App\Models\Dog;
 use App\Models\Breed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\admin\StoreDogRequest;
 
 class DogController extends Controller
 {
+    private $pictures;
+    
+    public function __construct()
+    {
+        $this->pictures = new PictureRepository();
+    }
+
     public function view($dogId)
     {
         $dog = Dog::findOrFail($dogId);
@@ -34,15 +43,7 @@ class DogController extends Controller
     public function store(StoreDogRequest $request)
     {
         $validated = $request->validated();
-        // dd($validated);
-        
-        if ($validated['picture'] != config('constants.default_picture'))
-        {
-            $path = $request->file('picture')->store('dogs');
-            $validated['picture'] = $path;
-        }
-        
-        dd($validated);
+        $validated['picture'] = $this->pictures->addNewPicture($request);
         Dog::create($validated);
         
         
@@ -62,16 +63,19 @@ class DogController extends Controller
         $dog = Dog::findOrFail($dogId);
         $validated = $request->validated();
 
+        $validated['picture'] = $this->pictures->changePicture($dog->picture, $request);
+
         $dog->update($validated);
-        // TODO: update image
         return $this->viewAll();
     }
 
     public function destroy($dogId)
     {
         $dog = Dog::findOrFail($dogId);
+    
+        $this->pictures->deletePicture($dog->picture);
+        
         $dog->delete();
-        // TODO: remove image
         return $this->viewAll();
     }
 }
