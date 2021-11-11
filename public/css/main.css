@@ -213,6 +213,14 @@ textarea {
     transform: translateY(-50%);
 }
 
+.invalid-input {
+    border: 2px solid #d9534f;
+    border-radius: 10px;
+}
 
+.valid-input {
+    border: 2px solid #5cb85c;
+    border-radius: 10px;
+}
 
 
