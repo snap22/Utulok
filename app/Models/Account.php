@@ -15,7 +15,6 @@ class Account extends Authenticatable
     // vypnutie automatickeho zadavania hodnot created_at & updated_at do tabulky
     public $timestamps = false;   
      
-    protected $attributes = ['is_admin'];
 
     protected $fillable = [
         'email',
