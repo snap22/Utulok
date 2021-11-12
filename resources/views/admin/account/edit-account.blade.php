@@ -4,9 +4,6 @@
 
   <div class="card">
     <div class="card-content">
-      <a href="{{ route('accounts.view', ['accountId' => $user->account_id]) }}" class="">
-          <i class="material-icons medium grey-text right">keyboard_backspace</i>
-      </a> 
       <div class="row">
         <div class="col s8">
           
@@ -21,9 +18,14 @@
 
               <div class="input-field">
                 <select name="account_role">
-                  <option value="" disabled selected>Výber role</option>
-                  <option value="A">Admin</option>
-                  <option value="U">Používateľ</option>
+                  @if ($user->is_admin)
+                    <option selected value="A">Admin</option>
+                    <option value="U">Používateľ</option>
+                  @else
+                    <option value="A">Admin</option>
+                    <option selected value="U">Používateľ</option>
+                  @endif
+
                 </select>
                 <label>Rola</label>
                 @error( 'account_role' )
