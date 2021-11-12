@@ -37,13 +37,11 @@
             </div>
             <div class="row mt-5">
                 <div class="col-sm">
-                
-                    <a href="/profile/edit" class="btn btn-info"> Upraviť údaje </a> 
-                    <a href="/profile/edit/password" class="btn btn-warning"> Zmeniť heslo </a> 
-
                     <form method="POST" action="/profile">
                         @csrf
                         @method('DELETE')
+                        <a href="/profile/edit" class="btn btn-info"> Upraviť údaje </a> 
+                        <a href="/profile/edit/password" class="btn btn-warning"> Zmeniť heslo </a> 
                         <button class="btn btn-danger" type="submit"> Zmazať účet </button>
                     </form>
 
