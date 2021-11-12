@@ -3,7 +3,7 @@
 use App\Http\Controllers\User\AccountController;
 use App\Http\Controllers\User\HomeController;
 
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AccountController as AdminAccController;
 use App\Http\Controllers\Admin\DogController;
 use Illuminate\Support\Facades\Route;
