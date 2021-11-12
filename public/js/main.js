@@ -1,23 +1,35 @@
-function validateUserForm()
+function validateUserForm(form)
 {
+    let inputs = form.getElementsByTagName("INPUT");
 
+    for (const input of inputs) {
+        if (isInvalidInput(input))
+        {
+            return false;
+        }
+    }
+    return true;
 }
 
-function validateEmail(element)
+function isInvalidInput(element)
+{
+    return element.classList.contains("invalid-input");
+}
+
+
+function validateEmail(element, validateLength=true)
 {
     let email = removeWhitespace(element.value);
     let emailRegex = /^(.+)@(.+){2,}\.(.){2,3}$/;
 
     let error = new ErrorHolder(element);
 
-    if (email.length > 100)
+    if (validateLength)
     {
-        error.addError("Email cannot be longer than 100 characters!");
+        let validator = new LengthValidator(5, 100, fieldName="Email");
+        validator.validate(error, email);
     }
-    else if (email.length < 5 )
-    {
-        error.addError("Email cannot be shorter than 5 characters!");
-    }
+    
 
     if (! emailRegex.test(email))
     {
@@ -34,15 +46,9 @@ function validatePhoneNumber(element)
     let phoneRegex = /^[+]?[0-9]{9,20}$/;
 
     let error = new ErrorHolder(element);
+    let validator = new LengthValidator(9, 20, required=false, fieldName="Phone number");
 
-    if (phoneNumber.length > 0 && phoneNumber.length < 9)
-    {
-        error.addError("Phone number must be at least 9 characters long.");
-    }
-    else if (phoneNumber.length > 20)
-    {
-        error.addError("Phone number must be less than 20 characters long.");
-    }
+    validator.validate(error, phoneNumber);
 
     if (phoneNumber.length > 0 &&  ! phoneRegex.test(phoneNumber))
     {
@@ -58,10 +64,13 @@ function validateName(element)
     let text = removeWhitespace(element.value);
     let textRegexp = /^[áäčďéíĺľňóôŕšťúýžÁÄČĎÉÍĹĽŇÓÔŔŠŤÚÝŽa-zA-Z]{3,50}$/;
     let error = new ErrorHolder(element);
+    let validator = new LengthValidator(3, 50);
+    
+    validator.validate(error, text);
 
     if (! textRegexp.test(text))
     {
-        error.addError("This field must contain only alphabetical letters, the length must be between 3 and 50 characters.")
+        error.addError("This field must contain only alphabetical letters.");
     }
 
     error.showErrors(element.nextElementSibling.firstElementChild);
@@ -72,16 +81,9 @@ function validatePassword(element)
 {
     let password = element.value;
     let error = new ErrorHolder(element);
+    let validator = new LengthValidator(6, 60, fieldName="Password");
 
-    if (password.length < 6)
-    {
-        error.addError("Password must be at least than 6 characters long!");
-    }
-    else if (password.length > 60)
-    {
-        error.addError("Password cannot be longer than 60 characters!");
-    }
-
+    validator.validate(error, password);
     error.showErrors(element.nextElementSibling.firstElementChild);
 }
 
@@ -90,7 +92,39 @@ function removeWhitespace(value)
     return value.replace(/\s/g,''); 
 }
 
+class LengthValidator
+{
+    constructor(min, max,required=true, fieldName="This field")
+    {
+        this.min = min;
+        this.max = max;
+        this.required = required;
+        this.fieldName = fieldName;
+    }
 
+    validate(errorHolder, value)
+    {
+        let isValid = true;
+
+        if (this.required && value.length == 0)
+        {
+            errorHolder.addError(this.fieldName + " is required!");
+            isValid = false;
+        }
+        else if (value.length > 0 && value.length < this.min)
+        {
+            errorHolder.addError(this.fieldName + " must be at least " + this.min + " characters long!");
+            isValid = false;
+        }
+        else if (value.length > this.max)
+        {
+            errorHolder.addError(this.fieldName + " cannot be longer than " + this.max + " characters!");
+            isValid = false;
+        }
+
+        return isValid;
+    }
+}
 
 class ErrorHolder
 {
