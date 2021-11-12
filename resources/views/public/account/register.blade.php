@@ -8,7 +8,7 @@
 
     <div class="container-fluid landing-page-block-light">
         <div class="container">
-            <form method="POST" action="/register" onsubmit="validateUserForm()">
+            <form method="POST" action="/register" onsubmit="return validateUserForm(this)">
                 @csrf
                 
                 <div class="row mt-2 mb-1">

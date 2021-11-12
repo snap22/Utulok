@@ -8,24 +8,24 @@
 
     <div class="container-fluid landing-page-block-light">
         <div class="container">
-            <form method="POST" action="/profile/edit">
+            <form method="POST" action="/profile/edit" onsubmit="return validateUserForm(this)">
                 @csrf
                 @method('PUT')
                 
                 <div class="row mt-2 mb-1">
                     <div class="col-3">
-                    <x-form-input type="text" name="first_name" placeholder="Krstné Meno" :value="old('first_name', $user->first_name)"/> 
+                    <x-form-input type="text" name="first_name" placeholder="Krstné Meno" :value="old('first_name', $user->first_name)" onblur="validateName(this)"/> 
 
                     </div>
                     <div class="col-3">
-                        <x-form-input type="text" name="last_name" placeholder="Priezvisko" :value="old('last_name', $user->last_name)"/> 
+                        <x-form-input type="text" name="last_name" placeholder="Priezvisko" :value="old('last_name', $user->last_name)" onblur="validateName(this)"/> 
                     </div>
                 </div>
 
                 <div class="row mt-2 mb-1">
                     <div class="col-6">
-                        <x-form-input type="email" name="email" placeholder="Email" :value="old('email', $user->email)"/> <br>
-                        <x-form-input type="text" name="phone_number" placeholder="Telefónne Číslo" :value="old('phone_number', $user->phone_number)"/>  <br>
+                        <x-form-input type="email" name="email" placeholder="Email" :value="old('email', $user->email)" onblur="validateEmail(this)"/> <br>
+                        <x-form-input type="text" name="phone_number" placeholder="Telefónne Číslo" :value="old('phone_number', $user->phone_number)" onblur="validatePhoneNumber(this)"/>  <br>
                         <button type="submit" class="btn btn-primary mt-3">Zmeniť údaje</button>
                     </div>
                 </div>     

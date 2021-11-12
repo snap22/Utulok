@@ -10,13 +10,13 @@
         <div class="container">
             <p class="display-4">
             </p>
-            <form method="POST" action="/profile/edit/password">
+            <form method="POST" action="/profile/edit/password" onsubmit="return validateUserForm(this)">
                 @csrf
                 
                 <div class="row mt-2 mb-1">
                      <div class="col-6">
                         <x-form-input type="password" name="password" placeholder="Heslo" /> <br>
-                        <x-form-input type="password" name="new_password" placeholder="Nové Heslo" /> <br>
+                        <x-form-input type="password" name="new_password" placeholder="Nové Heslo" onblur="validatePassword(this)" /> <br>
                         <x-form-input type="password" name="new_password_confirmation" placeholder="Nové Heslo Znovu" /> <br>
 
 
