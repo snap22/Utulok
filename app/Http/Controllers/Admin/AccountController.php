@@ -13,9 +13,7 @@ class AccountController extends Controller
     public function viewAll()
     {
         $users = Account::all()
-                    ->sortBy('account_id')
-                    ->take(20);
-                    
+                    ->sortBy('account_id');
 
         return view('admin.account.view-all', ['users' => $users]);
     }
