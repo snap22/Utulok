@@ -24,13 +24,13 @@
         @foreach ($contacts as $contact)
         <tr>
             <td > {{ $contact->contact_id }} </td>
-            <td > <a href="{{ route('contacts.view', ['contactsId' => $contact->contact_id ]) }}" class="black-text"> {{ $contact->contact_title }} </a> </td>
+            <td > <a href="{{ route('contacts.view', ['contactId' => $contact->contact_id ]) }}" class="black-text"> {{ $contact->contact_title }} </a> </td>
             <td> {{ $contact->email }} </td>
             <td> {{ $contact->date_created }} </td>
             <td class="right-align">
                 <x-admin.controls.controls-all 
-                    :viewLink="route('contacts.view', ['accountId' => $contact->contact_id])" 
-                    :deleteLink="route('contacts.delete', ['accountId' => $contact->contact_id])" 
+                    :viewLink="route('contacts.view', ['contactId' => $contact->contact_id])" 
+                    :deleteLink="route('contacts.delete', ['contactId' => $contact->contact_id])" 
                 />
             </td>
         </tr>

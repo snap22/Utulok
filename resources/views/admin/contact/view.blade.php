@@ -9,13 +9,12 @@
           <div class="row">
               <div class="col s8">
                 <!-- <h4> Informácie </h4> -->
-                <a href="{{ route('dogs.view.all') }}" class="btn btn-large btn-flat white"><i class="material-icons">keyboard_arrow_left</i></a>
+                <a href="{{ route('contacts.view.all') }}" class="btn btn-large btn-flat white"><i class="material-icons">keyboard_arrow_left</i></a>
               </div>
               <div class="col s4">
                 <div class="right-align ">
                   <x-admin.controls.controls-all 
-                    :editLink="route('dogs.edit', ['dogId' => $dog->dog_id])" 
-                    :deleteLink="route('dogs.delete', ['dogId' => $dog->dog_id])" 
+                    :deleteLink="route('contacts.delete', ['contactId' => $contact->contact_id])" 
                     btnStyle="btn-flat btn-large white"
                   />
                 </div>
@@ -55,7 +54,6 @@
                 
               </table>
 
-              <img class="responsive-img" width="200px"  height="200px" src="{{ asset('storage/' . $dog->picture) }}" alt="Obrázok psa">
             </div> 
             
 
