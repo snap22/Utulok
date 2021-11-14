@@ -3,12 +3,18 @@
     
 <ul id="slide-out" class="sidenav sidenav-fixed cyan darken-1 ">
     <li>
-        <a class="subheader"> <b>Admin Panel</b> </a>
+        <a class="subheader"> <b>Wouff Admin Panel</b> </a>
     </li>
     <li>
         <a href="/admin" class="blue-grey-text text-darken-4" > 
             <i class="blue-grey-text text-darken-4 material-icons small">insert_chart</i>
             <b>Domov</b> 
+        </a>
+    </li>
+    <li>
+        <a href="{{ route('contacts.view.all') }}" class="blue-grey-text text-darken-4">
+            <i class="blue-grey-text text-darken-4 material-icons small">mail</i>
+            <b>Správy</b> 
         </a>
     </li>
     <li>
