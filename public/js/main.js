@@ -16,6 +16,16 @@ function isInvalidInput(element)
     return element.classList.contains("invalid-input");
 }
 
+function validateContact(element, min, max)
+{
+    let value = removeWhitespace(element.value);
+    let error = new ErrorHolder(element);
+    let validator = new LengthValidator(min, max);
+
+    validator.validate(error, value);
+
+    error.showErrors(element.nextElementSibling.firstElementChild);
+}
 
 function validateEmail(element, validateLength=true)
 {
