@@ -60,22 +60,22 @@
                                 </div>
 
                                 <div class="col-sm-4 ">
-                                    <form action="{{ route('contacts.store') }}" method="POST">
+                                    <form action="{{ route('contacts.store') }}" method="POST" onsubmit="return validateUserForm(this)">
                                     @csrf
                                         <x-form-input type="text" name="contact_title" 
-                                            placeholder="Názov správy" :value="old('contact_title')" onblur="" /> 
+                                            placeholder="Názov správy" :value="old('contact_title')" onblur="validateContact(this, 3, 50)" /> 
                                         @guest
                                             <x-form-input type="text" name="contact_email"  
                                                 placeholder="Vaša e-mailová adresa" :value="old('contact_email')" 
-                                                class="contact-form-control" onblur="" /> 
+                                                class="contact-form-control" onblur="validateEmail(this, 3, 100)" /> 
                                         @else
                                             <x-form-input type="text" name="contact_email"  
                                                 placeholder="Vaša e-mailová adresa" :value="Auth::user()->email" readonly
-                                                class="contact-form-control" onblur="" /> 
+                                                class="contact-form-control" /> 
                                         @endguest
                                         <x-form-textarea name="contact_message" 
                                             placeholder="Vaša správa" :value="old('contact_message')"
-                                            class="contact-form-control" onblur="" />
+                                            class="contact-form-control" onblur="validateContact(this, 2, 500)" />
                                         
                                         <input type="submit" value="Poslať" class="contact-button"><br>
                                     </form>
