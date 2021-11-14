@@ -60,10 +60,23 @@
                                 </div>
 
                                 <div class="col-sm-4 ">
-                                    <form action="#" method="post">
-                                        <input type="text" name="contact-name" placeholder="Vaše meno" class="contact-form-control"> <br>
-                                        <input type="email" name="contact-email"  placeholder="Vaša e-mailová adresa" class="contact-form-control"> <br>
-                                        <textarea name="contact-text"  cols="10" rows="5" class="contact-form-control" placeholder="Správa"></textarea> <br>
+                                    <form action="{{ route('contacts.store') }}" method="POST">
+                                    @csrf
+                                        <x-form-input type="text" name="contact_title" 
+                                            placeholder="Názov správy" :value="old('contact_title')" onblur="" /> 
+                                        @guest
+                                            <x-form-input type="text" name="contact_email"  
+                                                placeholder="Vaša e-mailová adresa" :value="old('contact_email')" 
+                                                class="contact-form-control" onblur="" /> 
+                                        @else
+                                            <x-form-input type="text" name="contact_email"  
+                                                placeholder="Vaša e-mailová adresa" :value="Auth::user()->email" readonly
+                                                class="contact-form-control" onblur="" /> 
+                                        @endguest
+                                        <x-form-textarea name="contact_message" 
+                                            placeholder="Vaša správa" :value="old('contact_message')"
+                                            class="contact-form-control" onblur="" />
+                                        
                                         <input type="submit" value="Poslať" class="contact-button"><br>
                                     </form>
                                 </div>
