@@ -24,7 +24,13 @@
         @foreach ($users as $user)
         <tr>
             <td > {{ $user->account_id }} </td>
-            <td > <a href="{{ route('accounts.view', ['accountId' => $user->account_id]) }}" class="black-text"> {{ $user->email }} </a> </td>
+            <td > 
+                <a href="{{ route('accounts.view', ['accountId' => $user->account_id]) }}" class="black-text"> {{ $user->email }} 
+                    @if ($user->is_admin)
+                        <i class="material-icons tiny">shield</i>
+                    @endif
+                </a> 
+            </td>
             <td> {{ $user->first_name }} </td>
             <td> {{ $user->last_name }} </td>
             <td class="right-align">
