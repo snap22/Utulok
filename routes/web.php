@@ -75,3 +75,4 @@ Route::delete('/admin/dogs/{dogId}', [AdminDogController::class, 'destroy'])->mi
 Route::get('/admin/contacts', [ContactController::class, 'viewAll'])->middleware('admin')->name('contacts.view.all');
 Route::get('/admin/contacts/{contactId}', [ContactController::class, 'view'])->middleware('admin')->where('contactId', '[0-9]+')->name('contacts.view');
 Route::delete('/admin/contacts/{contactId}', [ContactController::class, 'destroy'])->middleware('admin')->where('contactId', '[0-9]+')->name('contacts.delete');
+Route::get('/admin/contacts/{contactId}/solve', [ContactController::class, 'solve'])->middleware('admin')->where('contactId', '[0-9]+')->name('contacts.solve');
