@@ -24,7 +24,13 @@
         @foreach ($contacts as $contact)
         <tr>
             <td > {{ $contact->contact_id }} </td>
-            <td > <a href="{{ route('contacts.view', ['contactId' => $contact->contact_id ]) }}" class="black-text"> {{ $contact->contact_title }} </a> </td>
+            <td >  
+                @if (! $contact->solved)
+                    <b> <a href="{{ route('contacts.view', ['contactId' => $contact->contact_id ]) }}" class="black-text"> {{ $contact->contact_title }} </b>
+                @else
+                    <a href="{{ route('contacts.view', ['contactId' => $contact->contact_id ]) }}" class="black-text"> {{ $contact->contact_title }} </a> 
+                @endif
+            </td>
             <td> {{ $contact->email }} </td>
             <td> {{ $contact->date_created }} </td>
             <td class="right-align">
