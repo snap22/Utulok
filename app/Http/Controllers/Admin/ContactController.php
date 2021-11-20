@@ -30,14 +30,14 @@ class ContactController extends Controller
         $contact = Contact::findOrFail($contactId);
         $contact->solved = true;
         $contact->update();
-        return $this->viewAll();
+        return redirect(route('contacts.view.all'));
     }
 
     public function destroy($contactId)
     {
         $contact = Contact::findOrFail($contactId);
         $contact->delete();
-        return redirect('/admin');
+        return redirect(route('contacts.view.all'));
     }
 
     public function store(CreateContactRequest $request)

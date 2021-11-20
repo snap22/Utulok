@@ -49,6 +49,6 @@ class AccountController extends Controller
 
         $user = Account::findOrFail($accountId);
         $user->delete();
-        return redirect('/admin');
+        return redirect(route('accounts.view.all'));
     }
 }

@@ -47,7 +47,7 @@ class DogController extends Controller
         Dog::create($validated);
         
         
-        return $this->viewAll();
+        return redirect(route('dogs.view.all'));
     }
 
     public function edit($dogId)
@@ -67,7 +67,7 @@ class DogController extends Controller
             $validated['picture'] = $this->pictures->changePicture($dog->picture, $request);
         }
         $dog->update($validated);
-        return $this->viewAll();
+        return redirect(route('dogs.view.all'));
     }
 
     public function destroy($dogId)
@@ -77,6 +77,6 @@ class DogController extends Controller
         $this->pictures->deletePicture($dog->picture);
         
         $dog->delete();
-        return $this->viewAll();
+        return redirect(route('dogs.view.all'));
     }
 }
