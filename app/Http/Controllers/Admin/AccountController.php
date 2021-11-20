@@ -12,8 +12,7 @@ class AccountController extends Controller
 {
     public function viewAll()
     {
-        $users = Account::all()
-                    ->sortBy('account_id');
+        $users = Account::orderBy('account_id')->paginate(15);
 
         return view('admin.account.view-all', ['users' => $users]);
     }
@@ -38,7 +37,6 @@ class AccountController extends Controller
         $attributes = $request->validated();
 
         $user->update($attributes);
-        // return redirect('/admin')->with('success', 'Účet bol úspešne aktualizovaný!');
         return redirect(route('accounts.view.all'));
     }
 

@@ -13,7 +13,7 @@ class ContactController extends Controller
 {
     public function viewAll()
     {
-        $contacts = Contact::all()->sortBy('date_created');
+        $contacts = Contact::orderBy('date_created', 'DESC')->paginate(10);
 
         return view('admin.contact.view-all', ['contacts' => $contacts]);
     }
