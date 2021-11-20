@@ -15,9 +15,6 @@
 </div>
 <hr>
 
-
-
-
 <table class="striped centered">
     <thead>
     <tr>
@@ -44,6 +41,8 @@
     </tbody>
 </table>
 
+
+{{ $dogs->links() }}
 
 
 @endsection
