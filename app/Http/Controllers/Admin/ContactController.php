@@ -25,9 +25,12 @@ class ContactController extends Controller
         return view('admin.contact.view', ['contact' => $contact]);
     }
 
-    public function update()
+    public function solve($contactId)
     {
-        // cez PUT request
+        $contact = Contact::findOrFail($contactId);
+        $contact->solved = true;
+        $contact->update();
+        return $this->viewAll();
     }
 
     public function destroy($contactId)
@@ -46,4 +49,5 @@ class ContactController extends Controller
         return redirect("/contact")->with('success', 'Správa bola úspešne odoslaná!');
     }
 
+    
 }
