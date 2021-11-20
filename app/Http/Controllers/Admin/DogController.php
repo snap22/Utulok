@@ -62,9 +62,10 @@ class DogController extends Controller
     {
         $dog = Dog::findOrFail($dogId);
         $validated = $request->validated();
-
-        $validated['picture'] = $this->pictures->changePicture($dog->picture, $request);
-
+        if (array_key_exists('picture', $validated))
+        {
+            $validated['picture'] = $this->pictures->changePicture($dog->picture, $request);
+        }
         $dog->update($validated);
         return $this->viewAll();
     }
