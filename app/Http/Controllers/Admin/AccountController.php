@@ -39,7 +39,7 @@ class AccountController extends Controller
 
         $user->update($attributes);
         // return redirect('/admin')->with('success', 'Účet bol úspešne aktualizovaný!');
-        return redirect('/admin');
+        return redirect(route('accounts.view.all'));
     }
 
     public function destroy($accountId)
