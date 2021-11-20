@@ -1,4 +1,4 @@
-@props(['viewLink', 'editLink', 'deleteLink', 'btnStyle' => 'btn-flat'])
+@props(['viewLink', 'editLink', 'editIcon' => 'create', 'deleteLink', 'btnStyle' => 'btn-flat'])
 
 <form action="{{ $deleteLink }}" method="POST">
     @csrf
@@ -9,7 +9,7 @@
     @endif
 
     @if (isset($editLink))
-        <a href="{{ $editLink }}" class="{{ $btnStyle }}"><i class="material-icons light-blue-text ">create</i> </a>
+        <a href="{{ $editLink }}" class="{{ $btnStyle }}"><i class="material-icons light-blue-text ">{{ $editIcon }}</i> </a>
     @endif
 
     <button type="submit" class="{{ $btnStyle }}">
