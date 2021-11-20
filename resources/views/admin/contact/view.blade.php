@@ -14,6 +14,7 @@
               <div class="col s4">
                 <div class="right-align ">
                   <x-admin.controls.controls-all 
+                    :editIcon="'done'"
                     :editLink="route('contacts.solve', ['contactId' => $contact->contact_id])" 
                     :deleteLink="route('contacts.delete', ['contactId' => $contact->contact_id])" 
                     btnStyle="btn-flat btn-large white"
