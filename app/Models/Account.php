@@ -22,6 +22,7 @@ class Account extends Authenticatable
         'first_name',
         'last_name',
         'phone_number',
+        'account_role',
     ];
 
     
