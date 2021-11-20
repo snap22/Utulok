@@ -16,22 +16,30 @@
               <x-admin.admin-input name="email" :value="old('email', $user->email)" label="Email"   />
               <x-admin.admin-input name="phone_number" :value="old('phone_number', $user->phone_number)" label="Kontakt"   />
 
-              <div class="input-field">
-                <select name="account_role">
-                  @if ($user->is_admin)
-                    <option selected value="A">Admin</option>
-                    <option value="U">Používateľ</option>
-                  @else
-                    <option value="A">Admin</option>
-                    <option selected value="U">Používateľ</option>
-                  @endif
+              @if ($user->account_id == Auth::user()->account_id)
+                <div class="input-field">
+                    <select name="account_role">
+                        <option selected value="A">Admin</option>
+                    </select>
+                    <label>Rola</label>
+              @else
+                <div class="input-field">
+                  <select name="account_role">
+                    @if ($user->is_admin)
+                      <option selected value="A">Admin</option>
+                      <option value="U">Používateľ</option>
+                    @else
+                      <option value="A">Admin</option>
+                      <option selected value="U">Používateľ</option>
+                    @endif
 
-                </select>
-                <label>Rola</label>
-                @error( 'account_role' )
-                    <span class="helper-text red-text">{{ $message }}</span>
-                @enderror
-              </div>
+                  </select>
+                  <label>Rola</label>
+                  @error( 'account_role' )
+                      <span class="helper-text red-text">{{ $message }}</span>
+                  @enderror
+                </div>
+              @endif
               
 
               <button class="btn waves-effect waves-light green" type="submit" name="">Uložiť
