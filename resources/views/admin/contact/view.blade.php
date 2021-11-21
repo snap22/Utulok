@@ -40,10 +40,6 @@
                   <td> {{ $contact->contact_email }} </td>
                 </tr>
                 <tr>
-                  <td> <b> Správa </b> </td>
-                  <td> {{ $contact->contact_message }} </td>
-                </tr>
-                <tr>
                   <td> <b> Dátum</b> </td>
                   <td> {{ $contact->date_created }} </td>
                 </tr>
@@ -51,8 +47,10 @@
                   <td> <b> Stav </b> </td>
                   <td> {{ $contact->solved ? 'Vyriešené' : 'Nevyriešené' }}  </td>
                 </tr>
-                
-                
+                <tr>
+                  <td> <b> Správa </b> </td>
+                  <td> {{ $contact->contact_message }} </td>
+                </tr>
                 
               </table>
 
