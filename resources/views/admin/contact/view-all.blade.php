@@ -14,7 +14,6 @@
     <tr>
         <th>ID</th>
         <th>Titul</th>
-        <th>Email</th>
         <th>Dátum</th>
     </tr>
     </thead>
@@ -31,7 +30,6 @@
                     <a href="{{ route('contacts.view', ['contactId' => $contact->contact_id ]) }}" class="black-text"> {{ $contact->contact_title }} </a> 
                 @endif
             </td>
-            <td> {{ $contact->email }} </td>
             <td> {{ $contact->date_created }} </td>
             <td class="right-align">
                 <x-admin.controls.controls-all 
