@@ -47,9 +47,11 @@ Route::delete('/profile', [AccountController::class, 'destroy'])->middleware('au
 Route::get('/profile/edit/password', [AccountController::class, 'changePassword'])->middleware('auth');
 Route::post('/profile/edit/password', [AccountController::class, 'updatePassword'])->middleware('auth');
 
-Route::get("/profile/address", [AdressController::class, 'create'])->middleware('auth');
+Route::get("/profile/address", [AdressController::class, 'create'])->middleware('auth')->name('address.create');
 Route::post("/profile/address", [AdressController::class, 'store'])->middleware('auth')->name('address.store');
-Route::delete("/profile/address", [AdressController::class, 'destroy'])->middleware('auth');
+Route::delete("/profile/address", [AdressController::class, 'destroy'])->middleware('auth')->name('address.destroy');
+Route::get("/profile/address/edit", [AdressController::class, 'edit'])->middleware('auth')->name('address.edit');
+Route::put("/profile/address/edit", [AdressController::class, 'update'])->middleware('auth')->name('address.update');
 
 
 
