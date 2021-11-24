@@ -25,7 +25,13 @@
                     </p>
 
                     <p>
-                        Adresa: Ulica 58, Mesto 012 34
+                        <h4>Adresa: </h4>
+                        @if ( isset($address) )
+                            {{ $address->street . ' ' . $address->house_number . ', ' . $address->zip_code . ' ' . $address->city }}
+                        @else
+                            Žiadna
+                        @endif
+                        
                     </p>
                     
                     <p>
@@ -41,6 +47,13 @@
                         @csrf
                         @method('DELETE')
                         <a href="/profile/edit" class="btn btn-info"> Upraviť údaje </a> 
+
+                        @if ( isset($address) )
+                            <a href="/profile/address/edit" class="btn btn-info"> Upraviť adresu </a> 
+                        @else
+                            <a href="/profile/address" class="btn btn-success"> Pridať adresu </a> 
+                        @endif
+
                         <a href="/profile/edit/password" class="btn btn-warning"> Zmeniť heslo </a> 
                         <button class="btn btn-danger" type="submit"> Zmazať účet </button>
                     </form>
