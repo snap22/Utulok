@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Address;
+
 
 class Account extends Authenticatable
 {
@@ -46,5 +48,10 @@ class Account extends Authenticatable
     public function getIsAdminAttribute()
     {
         return $this->account_role === 'A';
+    }
+
+    public function getHasAddressAttribute()
+    {
+        return Address::where('account_id', '=', $this->account_id)->exists();
     }
 }
