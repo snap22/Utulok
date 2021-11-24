@@ -16,6 +16,25 @@ function isInvalidInput(element)
     return element.classList.contains("invalid-input");
 }
 
+function validateZip(element)
+{
+    let zip = removeWhitespace(element.value);
+    let zipRegex = /^[0-9]{5}$/;
+    let error = new ErrorHolder(element);
+
+    if (zip.length == 4)
+    {
+        zip = "0" + String(zip);
+        element.value = zip;
+    }
+
+    if (!zipRegex.test(zip))
+    {
+        error.addError("Zip code should contain 5 digits.")
+    }
+    error.showErrors(element.nextElementSibling.firstElementChild);
+}
+
 function validateContact(element, min, max)
 {
     let value = removeWhitespace(element.value);
@@ -172,3 +191,30 @@ class ErrorHolder
         return (this.errors.length > 0);
     }
 }
+
+//  **** AJAX REQUESTY ****
+
+// function sendRequest(button)
+// {
+//     button.addEventListener("click", function(event)
+//     {
+//         event.preventDefault()
+//     });
+//     var xhttp = new XMLHttpRequest();
+//     xhttp.open("POST", "contact/ajax");
+//     xhttp.onreadystatechange = function() 
+//     {
+//         if (xhttp.readyState == 4 && xhttp.status == 200) 
+//         {
+//             console.log(xhttp.responseText);
+//         }
+//      }
+
+//     xhttp.open("post", "contact/ajax");
+//     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//     var title = document.getElementsByName("contact_title")[0].value;
+//     var email = document.getElementsByName("contact_email")[0].value;
+//     var message = document.getElementsByName("contact_message")[0].value;
+//     xhttp.send("contact_title=" + title + "&contact_email=" + email + "&contact_message=" + message);
+//     console.log(xhttp);
+// }
