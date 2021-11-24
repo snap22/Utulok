@@ -16,6 +16,7 @@
         <th>Email</th>
         <th>Meno</th>
         <th>Priezvisko</th>
+        <th></th>
     </tr>
     </thead>
 
@@ -33,6 +34,11 @@
             </td>
             <td> {{ $user->first_name }} </td>
             <td> {{ $user->last_name }} </td>
+            <td>
+                @if ($user->has_address)
+                    <i class="material-icons">where_to_vote</i>
+                @endif
+            </td>
             <td class="right-align">
                 <x-admin.controls.controls-all 
                     :viewLink="route('accounts.view', ['accountId' => $user->account_id])" 
