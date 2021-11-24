@@ -60,8 +60,41 @@
                 </tr>
               </table>
             </div> 
-            
-
+            @if (isset($address))
+              <ul class="collapsible">
+                <li class="active">
+                  <div class="collapsible-header"><i class="material-icons">cottage</i>Adresa</div>
+                  <div class="collapsible-body">
+                    <table>
+                      <tr>
+                        <td> <b> ID </b></td>
+                        <td> {{ $address->address_id }}</td>
+                      </tr>
+                      <tr>
+                        <td> <b> Ulica </b></td>
+                        <td> {{ $address->street }}</td>
+                      </tr>
+                      <tr>
+                        <td> <b> Číslo domu</b> </td>
+                        <td> {{ $address->house_number }}</td>
+                      </tr>
+                      <tr>
+                        <td>  <b>Mesto </b></td>
+                        <td> {{ $address->city }}</td>
+                      </tr>
+                      <tr>
+                        <td>  <b>PSČ </b></td>
+                        <td> {{ $address->zip_code }}</td>
+                      </tr>
+                      <tr>
+                        <td>  <b>Doplňujúce informácie </b></td>
+                        <td> {{ $address->additional_info }}</td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+              </ul>
+            @endif
           </div>
         </div>
         <!-- <div class="card-action">
