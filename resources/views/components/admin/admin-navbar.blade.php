@@ -30,9 +30,9 @@
         </a>
     </li>
     <li>
-        <a href="#!" class="blue-grey-text text-darken-4">
-            <i class="blue-grey-text text-darken-4 material-icons small">assignment</i>
-            <b>Adopcie</b> 
+        <a href="{{ route('breeds.view.all') }}" class="blue-grey-text text-darken-4">
+            <i class="blue-grey-text text-darken-4 material-icons small">format_list_bulleted</i>
+            <b>Plemená</b> 
         </a>
     </li>
     <li>
