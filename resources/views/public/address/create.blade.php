@@ -42,16 +42,4 @@
         </div>
     </div>
 
-
-    @if (isset($errors) && count($errors))
-     
-            There were {{count($errors->all())}} Error(s)
-                        <ul>
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error }} </li>
-                    @endforeach
-                </ul>
-                
-        @endif
-
 @endsection
