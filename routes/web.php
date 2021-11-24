@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AccountController as AdminAccController;
 use App\Http\Controllers\Admin\DogController as AdminDogController;
+use App\Http\Controllers\AjaxController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,7 @@ Route::get('/about', [HomeController::class, 'about']);
 Route::get('/contact', [HomeController::class, 'contact']);
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contacts.store');
+Route::post('/contact/ajax', [AjaxController::class, 'storeContact'])->name('contacts.store.ajax');
 
 Route::get('/register', [AccountController::class, 'create'])->middleware('guest');
 Route::post('/register', [AccountController::class, 'store'])->middleware('guest');
@@ -45,6 +47,7 @@ Route::get('/profile/edit/password', [AccountController::class, 'changePassword'
 Route::post('/profile/edit/password', [AccountController::class, 'updatePassword'])->middleware('auth');
 
 Route::get("/browse", [DogController::class, 'viewAll']);
+
 
 
 // ****     Admin Panel     ****
