@@ -10,23 +10,13 @@ use App\Http\Requests\StoreAddressRequest;
 
 class AdressController extends Controller
 {
-    public function viewAll()
-    {
-        $addresses = Address::orderBy('address_id')->paginate(10);
-    }
-
-    public function view($addressId)
-    {
-        $address = Address::findOrFail($addressId);
-    }
-
     public function create()
     {
         if (Auth::user()->has_address)
         {
             return redirect(route('address.edit'));
         }
-        
+
         return view('public.address.create');
     }
 
