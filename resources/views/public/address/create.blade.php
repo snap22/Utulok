@@ -1,0 +1,57 @@
+@extends('layouts.basic')
+
+
+
+@section('title', 'Address')
+
+@section('body')
+
+    <div class="container-fluid landing-page-block-light">
+        <div class="container">
+            <form method="POST" action="{{ route('address.store') }}" onsubmit="return validateUserForm(this)">
+                @csrf
+                
+                <div class="row mt-2 mb-1">
+                    <div class="col-3">
+                    <x-form-input type="text" name="street" placeholder="Ulica" :value="old('street')"/> 
+
+                    </div>
+                    <div class="col-3">
+                        <x-form-input type="text" name="house_number" placeholder="Číslo domu" :value="old('house_number')"/> 
+                    </div>
+                </div>
+
+                <div class="row mt-2 mb-1">
+                    <div class="col-3">
+                    <x-form-input type="text" name="zip_code" placeholder="PSČ" :value="old('zip_code')" onblur="validateZip(this)"/> 
+
+                    </div>
+                    <div class="col-3">
+                        <x-form-input type="text" name="city" placeholder="Mesto" :value="old('city')"/> 
+                    </div>
+                </div>
+
+                <div class="row mt-2 mb-1">
+                    <div class="col-6">
+                        <x-form-input type="text" name="additional_info" placeholder="Bližšie informácie" :value="old('additional_info')"/> <br>
+                        <button type="submit" class="btn btn-primary mt-3">Pridať Adresu</button>
+                    </div>
+
+                </div>     
+            </form>
+        </div>
+    </div>
+
+
+    @if (isset($errors) && count($errors))
+     
+            There were {{count($errors->all())}} Error(s)
+                        <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }} </li>
+                    @endforeach
+                </ul>
+                
+        @endif
+
+@endsection
