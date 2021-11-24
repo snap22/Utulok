@@ -30,7 +30,7 @@ class StoreAddressRequest extends FormRequest
             "city" => ["required", "min:3", "max:50"],
             "zip_code" => ["required", "size:5"],
             "additional_info" => ["nullable", "max:100"],
-            "account_id" => ["required", "exists:account,account_id" , Rule::unique("address", "account_id")],
+            // "account_id" => ["required", "exists:account,account_id" , Rule::unique("address", "account_id")],
         ];
     }
 }
