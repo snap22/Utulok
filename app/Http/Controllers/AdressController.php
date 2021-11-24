@@ -22,6 +22,11 @@ class AdressController extends Controller
 
     public function create()
     {
+        if (Auth::user()->has_address)
+        {
+            return redirect(route('address.edit'));
+        }
+        
         return view('public.address.create');
     }
 
@@ -31,17 +36,28 @@ class AdressController extends Controller
         $validated['account_id'] = Auth::user()->account_id;
         Address::create($validated);
 
-        return redirect('/')->with('success', 'Adresa bola úspešne pridaná!');
+        return redirect('/profile')->with('success', 'Adresa bola úspešne pridaná!');
     }
 
-    public function edit($addressId)
+    public function edit()
     {
+        if (! Auth::user()->has_address)
+        {
+            return redirect(route('address.create'));
+        }
 
+        $address = Address::where('account_id', '=', Auth::user()->account_id)->firstOrFail();
+        return view('public.address.edit', ['address' => $address]);
     }
 
-    public function update($addressId, StoreAddressRequest $request)
+    public function update(StoreAddressRequest $request)
     {
-
+        $user = Auth::user();
+        $validated = $request->validated();
+        $validated['account_id'] = $user->account_id;
+        $address = Address::where('account_id', '=', $user->account_id)->firstOrFail();
+        $address->update($validated);
+        return redirect('/profile')->with('success', 'Adresa bola úspešne aktualizovaná!');
     }
 
     public function destroy($addressId)
