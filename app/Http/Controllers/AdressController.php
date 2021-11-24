@@ -50,9 +50,10 @@ class AdressController extends Controller
         return redirect('/profile')->with('success', 'Adresa bola úspešne aktualizovaná!');
     }
 
-    public function destroy($addressId)
+    public function destroy()
     {
-        $address = Address::findOrFail($addressId);
+        $address = Address::where('account_id', '=', Auth::user()->account_id)->firstOrFail();
         $address->delete();
+        return redirect('/profile')->with('success', 'Adresa bola zmazaná!');
     }
 }
