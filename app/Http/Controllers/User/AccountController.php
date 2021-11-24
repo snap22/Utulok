@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
-
-use App\Http\Requests\AuthenticateAccountRequest;
-use App\Http\Requests\ChangePasswordRequest;
-use App\Http\Requests\EditProfileRequest;
-use App\Http\Requests\PasswordChangeRequest;
-use App\Http\Requests\StoreAccountRequest;
 use App\Models\Account;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Auth\Events\Validated;
+
+use App\Models\Address;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Validated;
+use App\Http\Requests\EditProfileRequest;
+use App\Http\Requests\StoreAccountRequest;
+use App\Http\Requests\ChangePasswordRequest;
+use App\Http\Requests\PasswordChangeRequest;
+use App\Http\Requests\AuthenticateAccountRequest;
 
 class AccountController extends Controller
 {
@@ -61,7 +62,9 @@ class AccountController extends Controller
 
     public function inspect()
     {
-        return view('public.account.profile-view', ['user' => Auth::user()]);
+        $user = Auth::user();
+        $address = Address::where('account_id', '=', $user->account_id)->first();
+        return view('public.account.profile-view', ['user' => $user, 'address' => $address]);
     }
 
     public function edit()
