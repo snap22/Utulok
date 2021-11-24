@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\admin\UpdateAccountRequest;
 use App\Models\Account;
+use App\Models\Address;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,8 +21,9 @@ class AccountController extends Controller
     public function view($accountId)
     {
         $user = Account::findOrFail($accountId);
+        $address = Address::where('account_id', '=', $user->account_id)->first();
 
-        return view('admin.account.view-account', ['user' => $user]);
+        return view('admin.account.view-account', ['user' => $user, 'address' => $address]);
     }
 
     public function edit($accountId)
