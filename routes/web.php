@@ -6,6 +6,7 @@ use App\Http\Controllers\User\DogController;
 use App\Http\Controllers\AdressController;
 
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\BreedController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AccountController as AdminAccController;
 use App\Http\Controllers\Admin\DogController as AdminDogController;
@@ -83,6 +84,12 @@ Route::post('/admin/dogs/create', [AdminDogController::class, 'store'])->middlew
 Route::get('/admin/dogs/{dogId}/edit', [AdminDogController::class, 'edit'])->middleware('admin')->where('dogId', '[0-9]+')->name('dogs.edit');
 Route::put('/admin/dogs/{dogId}/edit', [AdminDogController::class, 'update'])->middleware('admin')->where('dogId', '[0-9]+')->name('dogs.update');
 Route::delete('/admin/dogs/{dogId}', [AdminDogController::class, 'destroy'])->middleware('admin')->where('dogId', '[0-9]+')->name('dogs.delete');
+
+// Breeds
+Route::get('/admin/breeds', [BreedController::class, 'viewAll'])->middleware('admin')->name('breeds.view.all');
+Route::get('/admin/breeds/create', [BreedController::class, 'create'])->middleware('admin')->name('breeds.create');
+Route::post('/admin/breeds/create', [BreedController::class, 'store'])->middleware('admin')->name('breeds.store');
+Route::delete('/admin/breeds/{breedId}', [BreedController::class, 'destroy'])->middleware('admin')->where('breedId', '[0-9]+')->name('breeds.delete');
 
 // Contacts 
 Route::get('/admin/contacts', [ContactController::class, 'viewAll'])->middleware('admin')->name('contacts.view.all');
