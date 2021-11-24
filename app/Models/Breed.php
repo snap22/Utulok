@@ -11,8 +11,13 @@ class Breed extends Model
 
     protected $table = "breed";
     protected $primaryKey = "breed_id";
+    public $timestamps = false; 
 
     protected $fillable = [
         'name',
+    ];
+
+    protected $guarded = [
+        'breed_id',
     ];
 }
