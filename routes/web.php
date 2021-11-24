@@ -3,6 +3,7 @@
 use App\Http\Controllers\User\AccountController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\DogController;
+use App\Http\Controllers\AdressController;
 
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\AdminController;
@@ -46,7 +47,14 @@ Route::delete('/profile', [AccountController::class, 'destroy'])->middleware('au
 Route::get('/profile/edit/password', [AccountController::class, 'changePassword'])->middleware('auth');
 Route::post('/profile/edit/password', [AccountController::class, 'updatePassword'])->middleware('auth');
 
+Route::get("/profile/address", [AdressController::class, 'create'])->middleware('auth');
+Route::post("/profile/address", [AdressController::class, 'store'])->middleware('auth')->name('address.store');
+Route::delete("/profile/address", [AdressController::class, 'destroy'])->middleware('auth');
+
+
+
 Route::get("/browse", [DogController::class, 'viewAll']);
+
 
 
 
