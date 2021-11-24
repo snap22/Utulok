@@ -28,7 +28,7 @@ class StoreDogRequest extends FormRequest
             "name" => ["required", "min:3", "max:50"],
             "age" => ["required", "integer", "min:0", "max:50"],
             "gender" => ["required", Rule::in(['F', 'M'])],
-            "breed_id" => ["max:20", "nullable"],
+            "breed_id" => ["required", "exists:breed,breed_id"],
             "info" => ["max:100", "nullable"],
             "picture" => ["image", "nullable", "max:10240"],
         ];
