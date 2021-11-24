@@ -13,11 +13,11 @@
                 
                 <div class="row mt-2 mb-1">
                     <div class="col-3">
-                    <x-form-input type="text" name="street" placeholder="Ulica" :value="old('street')"/> 
+                    <x-form-input type="text" name="street" placeholder="Ulica" :value="old('street')" onblur="validateContact(this, 3, 50)"/> 
 
                     </div>
                     <div class="col-3">
-                        <x-form-input type="text" name="house_number" placeholder="Číslo domu" :value="old('house_number')"/> 
+                        <x-form-input type="text" name="house_number" placeholder="Číslo domu" :value="old('house_number')" onblur="validateContact(this, 1, 4)"/> 
                     </div>
                 </div>
 
@@ -27,7 +27,7 @@
 
                     </div>
                     <div class="col-3">
-                        <x-form-input type="text" name="city" placeholder="Mesto" :value="old('city')"/> 
+                        <x-form-input type="text" name="city" placeholder="Mesto" :value="old('city')" onblur="validateContact(this, 3, 50)"/> 
                     </div>
                 </div>
 
