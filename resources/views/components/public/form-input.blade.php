@@ -1,10 +1,19 @@
-@props(['name', 'value' => '', 'type' => 'text', 'placeholder'])
+@props(['name', 'value' => '', 'type' => 'text', 'placeholder' => '', 'label'])
 
-<input  name="{{ $name }}" 
-        type="{{ $type }}" 
-        placeholder="{{ $placeholder }}" 
-        value="{{ $value }}"
-        {{ $attributes->merge(['class' => "form-control"]) }} >
+<div>
+    @if (isset($label))
+        <label for="{{ $name }}" class="input-text" > 
+            
+                {{ $label }}
+            
+        </label>
+    @endif
+    <input  name="{{ $name }}" 
+            type="{{ $type }}" 
+            placeholder="{{ $placeholder }}" 
+            value="{{ $value }}"
+            {{ $attributes->merge(['class' => "form-control"]) }} >
+</div>
 
 <div class="text-danger">
     <p class="text-sm"> 
