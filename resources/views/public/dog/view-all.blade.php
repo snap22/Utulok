@@ -35,7 +35,7 @@
                                             <h5 class="card-title">{{ $dog->name }}</h5>
                                         </div>
                                         <div class="col-sm-1">
-                                            <a href="{{ route('public.dogs.view', ['dogId' => $dog->dog_id]) }}" class="btn btn-info">Ukáž</a>
+                                            <a href="{{ route('public.dogs.view', ['dogId' => $dog->dog_id]) }}" class="btn btn-dark">Ukáž</a>
                                         </div>
                                     </div>
                                 </div>
