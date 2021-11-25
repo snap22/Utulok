@@ -55,8 +55,8 @@ Route::get("/profile/address/edit", [AdressController::class, 'edit'])->middlewa
 Route::put("/profile/address/edit", [AdressController::class, 'update'])->middleware('auth')->name('address.update');
 
 
-
-Route::get("/browse", [DogController::class, 'viewAll']);
+Route::get("/browse", [DogController::class, 'viewAll'])->name('public.dogs.view.all');
+Route::get("/browse/dog/{dogId}", [DogController::class, 'view'])->where('accountId', '[0-9]+')->name('public.dogs.view');
 
 
 
