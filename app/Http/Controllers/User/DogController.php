@@ -11,7 +11,7 @@ class DogController extends Controller
 {
     public function viewAll()
     {
-        $dogs = Dog::all()->sortBy('dog_id');
+        $dogs = Dog::orderBy('dog_id')->paginate(10);
 
         return view('public.dog.view-all', ['dogs' => $dogs]);
     }
