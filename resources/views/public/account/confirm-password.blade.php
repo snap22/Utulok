@@ -16,7 +16,7 @@
                 
                 <div class="row mt-2 mb-1">
                      <div class="col-6">
-                        <x-form-input type="password" name="password" placeholder="Heslo" /> <br>
+                        <x-public.form-input type="password" name="password" placeholder="Heslo" /> <br>
                         <button type="submit" class="btn btn-primary mt-3">Overiť</button>
                     </div> 
                     

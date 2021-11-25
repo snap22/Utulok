@@ -14,27 +14,27 @@
 
                 <div class="row mt-2 mb-1">
                     <div class="col-3">
-                    <x-form-input type="text" name="street" placeholder="Ulica" :value="old('street', $address->street)" onblur="validateContact(this, 3, 50)"/> 
+                    <x-public.form-input type="text" name="street" placeholder="Ulica" :value="old('street', $address->street)" onblur="validateContact(this, 3, 50)"/> 
 
                     </div>
                     <div class="col-3">
-                        <x-form-input type="text" name="house_number" placeholder="Číslo domu" :value="old('house_number', $address->house_number)" onblur="validateContact(this, 1, 4)"/> 
+                        <x-public.form-input type="text" name="house_number" placeholder="Číslo domu" :value="old('house_number', $address->house_number)" onblur="validateContact(this, 1, 4)"/> 
                     </div>
                 </div>
 
                 <div class="row mt-2 mb-1">
                     <div class="col-3">
-                    <x-form-input type="text" name="zip_code" placeholder="PSČ" :value="old('zip_code', $address->zip_code)" onblur="validateZip(this)"/> 
+                    <x-public.form-input type="text" name="zip_code" placeholder="PSČ" :value="old('zip_code', $address->zip_code)" onblur="validateZip(this)"/> 
 
                     </div>
                     <div class="col-3"> 
-                        <x-form-input type="text" name="city" placeholder="Mesto" :value="old('city', $address->city)" onblur="validateContact(this, 3, 50)"/> 
+                        <x-public.form-input type="text" name="city" placeholder="Mesto" :value="old('city', $address->city)" onblur="validateContact(this, 3, 50)"/> 
                     </div>
                 </div>
 
                 <div class="row mt-2 mb-1">
                     <div class="col-6">
-                        <x-form-input type="text" name="additional_info" placeholder="Bližšie informácie" :value="old('additional_info', $address->additional_info)"/> <br>
+                        <x-public.form-input type="text" name="additional_info" placeholder="Bližšie informácie" :value="old('additional_info', $address->additional_info)"/> <br>
                         <button type="submit" class="btn btn-primary mt-3">Upraviť Adresu</button>
                     </div>
 

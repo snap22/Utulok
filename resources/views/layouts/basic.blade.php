@@ -20,12 +20,12 @@
 <body>
     <!-- Navigation bar -->
 
-    <x-navbar>
+    <x-public.navbar>
         
-    </x-navbar>
+    </x-public.navbar>
 
     @if (session()->has('success'))
-        <x-flash-message class="flash-message" type="success" :message="session('success')" />
+        <x-public.flash-message class="flash-message" type="success" :message="session('success')" />
 
         <!-- <div class="text-center position-fixed alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
