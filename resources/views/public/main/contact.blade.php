@@ -63,14 +63,14 @@
                                     <form action="{{ route('contacts.store') }}" method="POST" onsubmit="return validateUserForm(this)">
                                     @csrf
                                         <x-public.form-input type="text" name="contact_title" 
-                                            placeholder="Názov správy" :value="old('contact_title')" onblur="validateContact(this, 3, 50)" /> 
+                                        label="Názov správy" :value="old('contact_title')" onblur="validateContact(this, 3, 50)" /> 
                                         @guest
                                             <x-public.form-input type="text" name="contact_email"  
-                                                placeholder="Vaša e-mailová adresa" :value="old('contact_email')" 
+                                            label="Vaša e-mailová adresa" :value="old('contact_email')" 
                                                 class="contact-form-control" onblur="validateEmail(this, 3, 100)" /> 
                                         @else
                                             <x-public.form-input type="text" name="contact_email"  
-                                                placeholder="Vaša e-mailová adresa" :value="Auth::user()->email" readonly
+                                                label="Vaša e-mailová adresa" :value="Auth::user()->email" readonly
                                                 class="contact-form-control" /> 
                                         @endguest
                                         <x-public.form-textarea name="contact_message" 
