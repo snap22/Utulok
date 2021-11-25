@@ -248,6 +248,11 @@ textarea {
     height: 200px;
 }
 
+.dog-picture {
+    width:350px;
+    height: 350px;
+}
+
 body {
     background-color: #dfe6e9;;
 }
