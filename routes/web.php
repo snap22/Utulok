@@ -3,7 +3,7 @@
 use App\Http\Controllers\User\AccountController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\DogController;
-use App\Http\Controllers\AdressController;
+use App\Http\Controllers\User\AdressController;
 
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\BreedController;
