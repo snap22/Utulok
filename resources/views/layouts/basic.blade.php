@@ -25,7 +25,7 @@
     </x-navbar>
 
     @if (session()->has('success'))
-        <x-flash-message type="success" :message="session('success')" />
+        <x-flash-message class="flash-message" type="success" :message="session('success')" />
 
         <!-- <div class="text-center position-fixed alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
@@ -33,8 +33,6 @@
         </div> -->
     @endif
 
-    
-        
     <!-- Body -->
 
     @yield('body')
