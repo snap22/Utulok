@@ -7,29 +7,33 @@
 <div class="container-fluid landing-page-block-light">
     <div class="container-sm">
         <div class="row mt-5">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
                 <div class="row">
-                    <div class="card col-sm-4 dog-card">
-                        <div class="col-sm-12">
-                            <img src="{{ asset('storage/' . $dog->picture) }}" class="card-img-top" alt="Picture of a dog">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $dog->name }}</h5>
-                                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                <p>
+                    <div class="card col-sm-12 front-card-dark">
+                        <div class="row card-body">
+                            <div class="col-sm-6">
+                                <img src="{{ asset('storage/' . $dog->picture) }}" class="mt-3 card-img-top" alt="Picture of a dog">
+                            </div>
+                            <div class="col-sm">
+                                <p class="card-title display-1 text-highlight">{{ $dog->name }}</p>    
+                                <p class="display-6">
                                     Plemeno: {{ $dog->breed }}
                                 </p>
-                                <p>
+                                <p class="display-6"> 
                                     Vek: {{ $dog->age }}
                                 </p>
-                                <p>
-                                    Pohlavie: {{ $dog->gender }}
+                                <p class="display-6">
+                                    Pohlavie: {{ $dog->gender == 'M' ? 'Samec' : 'Samica' }}
                                 </p>
-                                <p>
-                                    Info: {{ $dog->info }}
-                                </p>
+                                @if (! empty($dog->info))
+                                    <p class="display-6">
+                                        Info: {{ $dog->info }}
+                                    </p>
+                                @endif
                             </div>
                         </div>
+                            
                     </div>
                 </div>
             </div>
