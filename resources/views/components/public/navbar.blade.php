@@ -14,7 +14,7 @@
                 <a class="nav-link" href="/">Domov</a>
                 <a class="nav-link" href="/about">O nás</a>
                 <a class="nav-link" href="/contact">Kontakty</a>  
-                <a class="nav-link" href="/">Ponuka</a>  
+                <a class="nav-link" href="{{ route('public.dogs.view.all') }}">Ponuka</a>  
             </div>
             <div class="navbar-nav  menu-item">
                 @guest
