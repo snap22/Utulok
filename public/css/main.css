@@ -223,4 +223,14 @@ textarea {
     border-radius: 10px;
 }
 
+.flash-message {
+    z-index: 5;
+    font-size: 20px;
+    padding-right: 4em;
+    box-shadow: 3px 3px 20px black;
+}
+
+body {
+    background-color: #dfe6e9;;
+}
 
