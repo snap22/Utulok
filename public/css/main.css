@@ -230,6 +230,10 @@ textarea {
     box-shadow: 3px 3px 20px black;
 }
 
+.input-text {
+    font-size:18px;
+}
+
 body {
     background-color: #dfe6e9;;
 }
