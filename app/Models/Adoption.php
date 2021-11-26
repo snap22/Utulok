@@ -15,6 +15,7 @@ class Adoption extends Model
 
     protected $fillable = [
         'dog_id',
+        'account_id',
     ];
 
     protected $guarded = [
