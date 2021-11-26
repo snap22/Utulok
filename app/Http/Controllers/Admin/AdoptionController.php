@@ -34,7 +34,7 @@ class AdoptionController extends Controller
         $dog = Dog::findOrFail($dogId);
         if ($dog->is_adopted)
         {
-            return redirect(route('public.dogs.view', ['dogId' => $dogId]))->with('info', 'Tento pes je nedostupný');
+            return redirect(route('public.dogs.view', ['dogId' => $dogId]))->with('error', 'Tento pes je nedostupný');
         }
         return view('public.adoption.create', ['dog' => $dog]);
     }
