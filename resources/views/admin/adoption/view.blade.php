@@ -35,11 +35,11 @@
                 </tr>
                 <tr>
                   <td> <b> Pes </b> </td>
-                  <td> <a href="{{ route('dogs.view', ['dogId' => $adoption->dog_id }}"> {{ $adoption->dog_id }} </a> </td>
+                  <td> <a href="{{ route('dogs.view', ['dogId' => $adoption->dog_id]) }}"> {{ $dog->name }} </a> </td>
                 </tr>
                 <tr>
                   <td> <b> Užívateľ </b> </td>
-                  <td> <a href="{{ route('accounts.view', ['accountId' => $adoption->account_id }}"> {{ $adoption->account_id }} </a> </td>
+                  <td> <a href="{{ route('accounts.view', ['accountId' => $adoption->account_id]) }}"> {{ $account->email }} </a> </td>
                 </tr>
               </table>
               
