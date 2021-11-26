@@ -26,11 +26,10 @@
 
     @if (session()->has('success'))
         <x-public.flash-message class="flash-message" type="success" :message="session('success')" />
+    @endif
 
-        <!-- <div class="text-center position-fixed alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div> -->
+    @if (session()->has('error'))
+        <x-public.flash-message class="flash-message" type="danger" :message="session('error')" />
     @endif
 
     <!-- Body -->
