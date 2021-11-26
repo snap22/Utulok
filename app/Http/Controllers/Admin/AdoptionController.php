@@ -17,14 +17,16 @@ class AdoptionController extends Controller
     {
         $adoptions = Adoption::orderBy('adoption_id')->paginate(10);
 
-        return view('admin.dog.view-all', ['adoptions' => $adoptions]);
+        return view('admin.adoption.view-all', ['adoptions' => $adoptions]);
     }
 
     public function view($adoptionId) 
     {
         $adoption = Adoption::findOrFail($adoptionId);
+        $account = Account::find($adoption->account_id);
+        $dog = Dog::find($adoption->dog_id);
 
-        return view('admin.adoption.view', ['dog' => $adoption]);
+        return view('admin.adoption.view', ['adoption' => $adoption, 'dog' => $dog, 'account' => $account]);
     }
 
     public function create($dogId)
@@ -37,9 +39,9 @@ class AdoptionController extends Controller
     {
         $validated = $request->validated();
 
-        if ( ! Dog::find($validated['dog_id'])->first()->is_available)
+        if (Dog::find($validated['dog_id'])->first()->is_adopted)
         {
-            // pes už je obsadeny
+            abort(400, 'Bad request.');
         }
 
         $validated['account_id'] = Auth::user()->account_id;
