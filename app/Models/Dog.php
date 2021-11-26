@@ -34,6 +34,11 @@ class Dog extends Model
         return Breed::find($this->breed_id)->name;
     }
 
+    public function getIsAdoptedAttribute()
+    {
+        return Adoption::where('dogId', '=', $this->dog_id)->exists();
+    }
+
 
 }
 
