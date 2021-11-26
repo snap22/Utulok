@@ -33,7 +33,18 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="row text-center text-highlight">
                             
+                                @if ($dog->is_adopted)
+                                    <div class="text-center">
+                                        <h4>O tohto chlpáča už niekto prejavil záujem</h4>
+                                    </div>
+                                    
+                                @else
+                                    <a href="{{ route('public.adoptions.create', ['dogId' => $dog->dog_id]) }}" class="btn btn-lg contact-button">Chcem ho!</a>
+                                @endif
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
