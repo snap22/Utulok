@@ -36,6 +36,12 @@
         </a>
     </li>
     <li>
+        <a href="{{ route('adoptions.view.all') }}" class="blue-grey-text text-darken-4">
+            <i class="blue-grey-text text-darken-4 material-icons small">sticky_note_2</i>
+            <b>Adopcie</b> 
+        </a>
+    </li>
+    <li>
         <div class="divider blue-grey darken-4 "></div>
     </li>
     <li>
