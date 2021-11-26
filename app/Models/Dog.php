@@ -36,7 +36,7 @@ class Dog extends Model
 
     public function getIsAdoptedAttribute()
     {
-        return Adoption::where('dogId', '=', $this->dog_id)->exists();
+        return Adoption::where('dog_id', '=', $this->dog_id)->exists();
     }
 
 
