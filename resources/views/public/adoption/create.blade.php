@@ -13,7 +13,7 @@
                     <div class="card col-sm-12 front-card-dark">
                         <div class="row card-body">
                                 <p class="card-title display-1 text-highlight">Žiadosť o adopciu</p>    
-                                <form action="{{ route('adoptions.store') }}" method="POST">
+                                <form action="{{ route('public.adoptions.store') }}" method="POST">
                                     @csrf
                                         <label for="dog_id">Chlpáč: </label>
 
