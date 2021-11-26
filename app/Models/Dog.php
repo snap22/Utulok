@@ -41,13 +41,3 @@ class Dog extends Model
 
 
 }
-
-/*
-dog_id SERIAL PRIMARY KEY,
-	name VARCHAR(50) NOT NULL,
-	gender CHAR(1) NOT NULL CHECK(gender IN ('F', 'M')),
-	age INTEGER CHECK(age >= 0),
-	breed_id INTEGER,
-	picture VARCHAR(30) NOT NULL DEFAULT 'dog_default.png',
-	info VARCHAR(100),
-*/
