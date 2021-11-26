@@ -41,16 +41,15 @@ class AdoptionController extends Controller
 
     public function store(StoreAdoptionRequest $request)
     {
-        $validated = $request->validated();
-
-        if (Dog::find($validated['dog_id'])->first()->is_adopted)
+        $validated = $request->validated(); 
+        if ( Dog::find($validated['dog_id'])->is_adopted )
         {
             abort(400, 'Bad request.');
         }
 
         $validated['account_id'] = Auth::user()->account_id;
         Adoption::create($validated);
-        return redirect(route('public.dogs.view.all'))->with('success', 'Adoptácia prebehla úspešne!');
+        return redirect(route('public.dogs.view.all'))->with('success', 'Adopcia prebehla úspešne!');
     }
 
     public function destroy($adoptionId)
