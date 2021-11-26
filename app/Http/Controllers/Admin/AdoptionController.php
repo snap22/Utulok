@@ -32,6 +32,10 @@ class AdoptionController extends Controller
     public function create($dogId)
     {
         $dog = Dog::findOrFail($dogId);
+        if ($dog->is_adopted)
+        {
+            return redirect(route('public.dogs.view', ['dogId' => $dogId]))->with('info', 'Tento pes je nedostupný');
+        }
         return view('public.adoption.create', ['dog' => $dog]);
     }
 
@@ -45,15 +49,14 @@ class AdoptionController extends Controller
         }
 
         $validated['account_id'] = Auth::user()->account_id;
-
         Adoption::create($validated);
-        return redirect('public.dogs.view.all')->with('success', 'Adoptácia prebehla úspešne!');
+        return redirect(route('public.dogs.view.all'))->with('success', 'Adoptácia prebehla úspešne!');
     }
 
     public function destroy($adoptionId)
     {
         $adoption = Adoption::findOrFail($adoptionId);
         $adoption->delete();
-        return redirect('adoptions.view.all');
+        return redirect(route('adoptions.view.all'));
     }
 }
