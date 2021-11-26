@@ -8,8 +8,11 @@ use App\Http\Controllers\User\AdressController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\BreedController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdoptionController;
 use App\Http\Controllers\Admin\AccountController as AdminAccController;
 use App\Http\Controllers\Admin\DogController as AdminDogController;
+
+
 use App\Http\Controllers\AjaxController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +32,7 @@ Route::get('/about', [HomeController::class, 'about']);
 Route::get('/contact', [HomeController::class, 'contact']);
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contacts.store');
+
 Route::post('/contact/ajax', [AjaxController::class, 'storeContact'])->name('contacts.store.ajax');
 
 Route::get('/register', [AccountController::class, 'create'])->middleware('guest');
@@ -58,6 +62,8 @@ Route::put("/profile/address/edit", [AdressController::class, 'update'])->middle
 Route::get("/browse", [DogController::class, 'viewAll'])->name('public.dogs.view.all');
 Route::get("/browse/dog/{dogId}", [DogController::class, 'view'])->where('accountId', '[0-9]+')->name('public.dogs.view');
 
+Route::get('/browse/dog/{dogId}/adopt', [AdoptionController::class, 'create'])->middleware('auth')->where('adoptionId', '[0-9]+')->name('public.adoptions.create');
+Route::post('/browse/dog/adopt', [AdoptionController::class, 'store'])->middleware('auth')->where('adoptionId', '[0-9]+')->name('public.adoptions.store');
 
 
 
@@ -96,3 +102,9 @@ Route::get('/admin/contacts', [ContactController::class, 'viewAll'])->middleware
 Route::get('/admin/contacts/{contactId}', [ContactController::class, 'view'])->middleware('admin')->where('contactId', '[0-9]+')->name('contacts.view');
 Route::delete('/admin/contacts/{contactId}', [ContactController::class, 'destroy'])->middleware('admin')->where('contactId', '[0-9]+')->name('contacts.delete');
 Route::get('/admin/contacts/{contactId}/solve', [ContactController::class, 'solve'])->middleware('admin')->where('contactId', '[0-9]+')->name('contacts.solve');
+
+// Adoptions
+
+Route::get('/admins/adoptions', [AdoptionController::class, 'viewAll'])->middleware('admin')->name('adoptions.view.all');
+Route::get('/admins/adoptions/{adoptionId}', [AdoptionController::class, 'view'])->middleware('admin')->where('adoptionId', '[0-9]+')->name('adoptions.view');
+Route::delete('/admins/adoptions/{adoptionId}', [AdoptionController::class, 'destroy'])->middleware('admin')->where('adoptionId', '[0-9]+')->name('adoptions.delete');
