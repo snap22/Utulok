@@ -17,7 +17,7 @@
                                     @csrf
                                         <label for="dog_id">Chlpáč: </label>
 
-                                        <select name="dog_id">
+                                        <select name="dog_id" class="form-select form-select-lg">
                                             <option value="{{ $dog->dog_id}}" selected> {{ $dog->name }}</option>
                                         </select>
                                         
