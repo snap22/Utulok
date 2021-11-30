@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+use function PHPUnit\Framework\isNull;
+
 class Dog extends Model
 {
     use HasFactory;
@@ -31,7 +33,15 @@ class Dog extends Model
 
     public function getBreedAttribute()
     {
-        return Breed::find($this->breed_id)->name;
+        if (Breed::where('breed_id', '=' ,$this->breed_id)->exists())
+        {
+            return Breed::find($this->breed_id)->name;
+        }
+        else
+        {
+            return "Žiadne";
+        }
+        
     }
 
     public function getIsAdoptedAttribute()
