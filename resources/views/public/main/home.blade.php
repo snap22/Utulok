@@ -100,9 +100,9 @@
                         Stále váhate? Prezrite si aktuálnu ponuku psov a možno sa do niektorého zamilujete!
                     </p>
                     <p class="front-title-small">
-                        <button class="front-button shadowed">
+                        <a href="{{ route('public.dogs.view.all') }}" class="front-button shadowed">
                             Hľadať nového kamoša
-                        </button>
+                        </a>
                     </p>
                 </div>
             </div>
