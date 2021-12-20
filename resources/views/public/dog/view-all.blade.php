@@ -9,19 +9,11 @@
         <div class="row mt-5">
             <div class="col-sm-12 text-center">
                 <p class="display-6" id="basic-addon3">Ponuka našich štvornoháčov</p>
-                <div class="row">
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-1">
-                        <a href="#" class="btn btn-lg btn-info mr-1">Hľadať </a>
-                    </div>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control form-control-lg ml-5" placeholder="Zadajte názov Vami hľadaného psíka alebo plemeno">
-                    </div>
-                </div>
+                
             </div>
         </div> <!-- row  -->
 
-        <div class="row mt-5">
+        <div class="row ">
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
                 <div class="row" id="dogsDiv">
