@@ -11,16 +11,19 @@ class DogController extends Controller
 {
     public function viewAll(Request $request)
     {
-        $dogs = Dog::orderBy('dog_id')->paginate(4);
-
+        $dogs = Dog::orderBy('dog_id')->paginate(4); 
         if ($request->ajax()) {
-            if (count($dogs) == 0)
-            {
-                return response()->json( "Uz nemame psov!", 404 );
-            }
-            $view = view('public.dog.load-more', ['dogs' => $dogs])->render();
-            return response()->json(['html'=>$view]);
             
+            if ($request->get('page') > $dogs->lastPage())
+            {
+                return response("Nenašli sa ďalší chlpáči! ", 404);
+            }
+            else
+            {
+                $hasNextPage = $request->get('page') < $dogs->lastPage();
+                $view = view('public.dog.load-more', ['dogs' => $dogs])->render();
+                return response()->json(['html' => $view, 'hasNextPage' => $hasNextPage]);
+            } 
         }
 
 
