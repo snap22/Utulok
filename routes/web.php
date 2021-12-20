@@ -33,8 +33,6 @@ Route::get('/contact', [HomeController::class, 'contact']);
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contacts.store');
 
-Route::post('/contact/ajax', [AjaxController::class, 'storeContact'])->name('contacts.store.ajax');
-
 Route::get('/register', [AccountController::class, 'create'])->middleware('guest');
 Route::post('/register', [AccountController::class, 'store'])->middleware('guest');
 Route::get('/login', [AccountController::class, 'login'])->middleware('guest')->name('login');
