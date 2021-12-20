@@ -194,12 +194,11 @@ class ErrorHolder
 
 //  **** AJAX REQUESTY ****
 let pageNum = 2;
-function loadData(button, data)
+function loadData(button)
 {
     button.addEventListener("click", function(event)
     {
         event.preventDefault();
-        console.log(data);
     });
     var xmlhttp = new XMLHttpRequest();
     // xmlhttp.responseType = "json";
@@ -208,8 +207,15 @@ function loadData(button, data)
 
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {   // XMLHttpRequest.DONE == 4
-            var json = JSON.parse(xmlhttp.responseText)
-             div.innerHTML += json['html'];
+            var data = JSON.parse(xmlhttp.responseText)
+
+            if (data['hasNextPage'] === false)
+            {
+                button.disabled = true;
+                button.style.display = "none";
+            }
+
+            div.innerHTML += data['html'];
         }
     };
     
