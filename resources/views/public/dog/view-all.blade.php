@@ -24,7 +24,7 @@
         <div class="row mt-5">
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
-                <div class="row">
+                <div class="row" id="dogsDiv">
                     @foreach ($dogs as $dog)
                         <div class="card col-sm-4 dog-card">
                             <div class="col-sm-12">
@@ -48,7 +48,7 @@
 
         <div class="row mt-5 text-center">
             <div class="col-sm">
-                <button class="btn btn-lg btn-warning" type="submit">Načítať ďalších 10</button>
+                <button class="btn btn-lg btn-warning" type="submit" onclick="loadData(this)">Načítať ďalších 4</button>         
             </div>
         </div>
     </div>     <!-- container-sm  -->     
