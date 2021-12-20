@@ -193,6 +193,32 @@ class ErrorHolder
 }
 
 //  **** AJAX REQUESTY ****
+let pageNum = 2;
+function loadData(button, data)
+{
+    button.addEventListener("click", function(event)
+    {
+        event.preventDefault();
+        console.log(data);
+    });
+    var xmlhttp = new XMLHttpRequest();
+    // xmlhttp.responseType = "json";
+
+    div = document.getElementById("dogsDiv");
+
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {   // XMLHttpRequest.DONE == 4
+            var json = JSON.parse(xmlhttp.responseText)
+             div.innerHTML += json['html'];
+        }
+    };
+    
+    
+    xmlhttp.open("GET", "browse?page=" + pageNum, true);
+    xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+    xmlhttp.send();
+    pageNum++;
+}
 
 // function sendRequest(button)
 // {
