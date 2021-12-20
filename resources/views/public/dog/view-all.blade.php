@@ -48,7 +48,7 @@
 
         <div class="row mt-5 text-center">
             <div class="col-sm">
-                <button class="btn btn-lg btn-warning" type="submit" onclick="loadData(this)">Načítať ďalších 4</button>         
+                <button class="btn btn-lg btn-warning" type="submit" onclick="loadData(this)">Načítať ďalších</button>         
             </div>
         </div>
     </div>     <!-- container-sm  -->     
