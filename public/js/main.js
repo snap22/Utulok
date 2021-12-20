@@ -226,27 +226,38 @@ function loadData(button)
     pageNum++;
 }
 
+// <button type="button" onclick="sendRequest(this)" class="contact-button"> AJAX Send </button> <br>  
 // function sendRequest(button)
 // {
 //     button.addEventListener("click", function(event)
 //     {
-//         event.preventDefault()
+//         event.preventDefault();
 //     });
+
+//     var token = document.getElementsByName('_token')[0].value;
+
 //     var xhttp = new XMLHttpRequest();
 //     xhttp.open("POST", "contact/ajax");
 //     xhttp.onreadystatechange = function() 
 //     {
 //         if (xhttp.readyState == 4 && xhttp.status == 200) 
 //         {
+//             // var data = JSON.parse(xhttp.responseText)
+//             // console.log(data['msg']);
 //             console.log(xhttp.responseText);
 //         }
 //      }
 
-//     xhttp.open("post", "contact/ajax");
-//     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 //     var title = document.getElementsByName("contact_title")[0].value;
 //     var email = document.getElementsByName("contact_email")[0].value;
 //     var message = document.getElementsByName("contact_message")[0].value;
-//     xhttp.send("contact_title=" + title + "&contact_email=" + email + "&contact_message=" + message);
-//     console.log(xhttp);
+
+//     var params = "contact_title=" + title + "&contact_email=" + email + "&contact_message=" + message;
+
+//     xhttp.open("post", "contact/ajax");
+//     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//     xhttp.setRequestHeader('X-CSRF-TOKEN', token);
+    
+//     xhttp.send(params);
+//     console.log("Odoslalo sa: " + params);
 // }
