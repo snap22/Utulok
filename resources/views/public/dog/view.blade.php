@@ -35,22 +35,29 @@
                         </div>
                         <div class="row text-center text-highlight">
                             
-                                @if ($dog->is_adopted)
-                                    <div class="text-center">
-                                        <h4>O tohto chlpáča už niekto prejavil záujem</h4>
-                                    </div>
-                                    
-                                @else
-                                    @guest
-                                        <div class="text-center text-light">
-                                           <h4> O chlpáča ešte neprejavil nikto záujem! <a class="text text-highlight text-none" href="{{ route('login') }}"> Prihlás sa </a> a môže byť tvoj! </h4>
-                                        </div>
+                        <div class="text-center">
+                            <h4>
+                                <div id="dogStatusInfo">                                
+                                    @if ($dog->is_adopted)
+                                        @if ($isOwner)
+                                            O tohto chlpáča ste už prejavili záujem!
+                                        @else
+                                            O tohto chlpáča už niekto prejavil záujem
+                                        @endif
                                     @else
-                                        <form action="" method="POST"> 
-                                            <button class="btn btn-lg btn-warning contact-button" type="button" onclick="sendRequest(this, '')">Chcem ho!</button>  
-                                        </form>
-                                    @endguest
-                                @endif
+                                        @guest
+                                            O chlpáča ešte neprejavil nikto záujem! <a class="text text-highlight text-none" href="{{ route('login') }}"> Prihláste sa </a> a môže byť Váš!
+                                        @else
+                                            <form action="" method="POST"> 
+                                                @csrf
+                                                <button class="btn btn-lg btn-warning contact-button" type="button" onclick="sendRequest(this, '{{ $dog->dog_id }}')">Chcem ho!</button>  
+                                            </form>
+                                        @endguest
+                                    @endif
+                                </div>
+                            </h4>
+                        </div>
+                               
                             </div>
                         </div>
                     </div>
