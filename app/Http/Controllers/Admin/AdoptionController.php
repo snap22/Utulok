@@ -43,6 +43,17 @@ class AdoptionController extends Controller
         return response("Záznam bol uložený!", 200);
     }
 
+    public function cancel($dogId)
+    {
+        $adoption = Adoption::where('dog_id', '=', $dogId)->firstOrFail();
+        if ($adoption->account_id != Auth::user()->account_id)
+        {
+            abort(400);
+        }
+        $adoption->delete();
+        return response("Záznam bol zrušený!", 200);
+    }
+
     public function destroy($adoptionId)
     {
         $adoption = Adoption::findOrFail($adoptionId);
