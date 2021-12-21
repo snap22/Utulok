@@ -196,10 +196,8 @@ class ErrorHolder
 let pageNum = 2;
 function loadData(button)
 {
-    button.addEventListener("click", function(event)
-    {
-        event.preventDefault();
-    });
+    preventDefaultButtonEvent(button);
+
     var xmlhttp = new XMLHttpRequest();
     // xmlhttp.responseType = "json";
 
@@ -228,10 +226,7 @@ function loadData(button)
 
 function sendRequest(button, dogId)
 {
-    button.addEventListener("click", function(event)
-    {
-        event.preventDefault();
-    });
+    preventDefaultButtonEvent(button);
 
     var div = document.getElementById("dogStatusInfo");
 
@@ -256,5 +251,41 @@ function sendRequest(button, dogId)
     xmlhttp.setRequestHeader('X-CSRF-TOKEN', token);
     
     xmlhttp.send(params);
-    console.log("Odoslalo sa: " + params);
+}
+
+function sendDeleteRequest(button, dogId)
+{
+    preventDefaultButtonEvent(button);
+
+    var div = document.getElementById("dogStatusInfo");
+
+    var token = document.getElementsByName('_token')[0].value;
+
+    var xmlhttp = new XMLHttpRequest();
+
+   
+    xmlhttp.onreadystatechange = function() 
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+        {
+            button.style.display = "none";
+            div.innerHTML = xmlhttp.responseText;
+        }
+     }
+
+    var params = "dog_id=" + dogId;
+
+    xmlhttp.open("delete", "adopt/" + dogId);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.setRequestHeader('X-CSRF-TOKEN', token);
+    
+    xmlhttp.send(params);
+}
+
+function preventDefaultButtonEvent(btn)
+{
+    btn.addEventListener("click", function(event)
+    {
+        event.preventDefault();
+    });
 }
