@@ -148,6 +148,10 @@ textarea {
     margin-left: 40px;
 }
 
+.text-none {
+    text-decoration: none;
+}
+
 .contact-card-icon {
     font-size: 25px;
     margin-right: 5px;
