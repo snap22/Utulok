@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreAdoptionRequest;
-use Illuminate\Support\Facades\DB;
 use App\Models\Dog;
 use App\Models\Account;
 use App\Models\Adoption;
-use Illuminate\Support\Facades\Auth;
+
 
 class AdoptionController extends Controller
 {
