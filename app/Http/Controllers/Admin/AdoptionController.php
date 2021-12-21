@@ -29,31 +29,6 @@ class AdoptionController extends Controller
         return view('admin.adoption.view', ['adoption' => $adoption, 'dog' => $dog, 'account' => $account]);
     }
 
-    public function store(StoreAdoptionRequest $request)
-    {
-        $validated = $request->validated(); 
-        if ( Dog::find($validated['dog_id'])->is_adopted )
-        {
-            return response("Chlpáč je už obsadený! ", 400);
-        }
-
-        $validated['account_id'] = Auth::user()->account_id;
-        Adoption::create($validated);
-
-        return response("Záznam bol uložený!", 200);
-    }
-
-    public function cancel($dogId)
-    {
-        $adoption = Adoption::where('dog_id', '=', $dogId)->firstOrFail();
-        if ($adoption->account_id != Auth::user()->account_id)
-        {
-            abort(400);
-        }
-        $adoption->delete();
-        return response("Záznam bol zrušený!", 200);
-    }
-
     public function destroy($adoptionId)
     {
         $adoption = Adoption::findOrFail($adoptionId);
