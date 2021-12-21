@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Dog;
+use App\Models\Adoption;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class DogController extends Controller
 {
@@ -33,6 +35,14 @@ class DogController extends Controller
     public function view($dogId)
     {
         $dog = Dog::findOrFail($dogId);
-        return view('public.dog.view', ['dog' => $dog]);
+        $isOwner = false;
+
+        if (Auth::user() != null && $dog->is_adopted)
+        {
+            $isOwner = Adoption::where('dog_id','=',$dog->dog_id)->where('account_id','=',Auth::user()->account_id)->exists();
+        }
+        
+
+        return view('public.dog.view', ['dog' => $dog, 'isOwner' => $isOwner]);
     }
 }
