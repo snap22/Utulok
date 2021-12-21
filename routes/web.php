@@ -60,9 +60,8 @@ Route::put("/profile/address/edit", [AdressController::class, 'update'])->middle
 Route::get("/browse", [DogController::class, 'viewAll'])->name('public.dogs.view.all');
 Route::get("/browse/dog/{dogId}", [DogController::class, 'view'])->where('accountId', '[0-9]+')->name('public.dogs.view');
 
-Route::get('/browse/dog/{dogId}/adopt', [AdoptionController::class, 'create'])->middleware('auth')->where('adoptionId', '[0-9]+')->name('public.adoptions.create');
 Route::post('/browse/dog/adopt', [AdoptionController::class, 'store'])->middleware('auth')->where('adoptionId', '[0-9]+')->name('public.adoptions.store');
-
+Route::delete('/browse/dog/adopt/{adoptionId}', [AdoptionController::class, 'cancel'])->middleware('admin')->where('adoptionId', '[0-9]+')->name('public.adoptions.delete');
 
 
 // ****     Admin Panel     ****
