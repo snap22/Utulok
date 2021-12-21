@@ -40,7 +40,14 @@
                                 <div id="dogStatusInfo">                                
                                     @if ($dog->is_adopted)
                                         @if ($isOwner)
-                                            O tohto chlpáča ste už prejavili záujem!
+                                            <div id="adoptionCancel">
+                                                O tohto chlpáča ste už prejavili záujem! 
+                                                <form action="" method="POST"> 
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-lg contact-button text-danger" type="button" onclick="sendDeleteRequest(this, '{{ $dog->dog_id }}')">Zrušiť</button>  
+                                                </form>
+                                            </div>
                                         @else
                                             O tohto chlpáča už niekto prejavil záujem
                                         @endif
@@ -48,10 +55,12 @@
                                         @guest
                                             O chlpáča ešte neprejavil nikto záujem! <a class="text text-highlight text-none" href="{{ route('login') }}"> Prihláste sa </a> a môže byť Váš!
                                         @else
-                                            <form action="" method="POST"> 
-                                                @csrf
-                                                <button class="btn btn-lg btn-warning contact-button" type="button" onclick="sendRequest(this, '{{ $dog->dog_id }}')">Chcem ho!</button>  
-                                            </form>
+                                            <div id="adoptionCreate">
+                                                <form action="" method="POST"> 
+                                                    @csrf
+                                                    <button class="btn btn-lg btn-warning contact-button" type="button" onclick="sendRequest(this, '{{ $dog->dog_id }}')">Chcem ho!</button>  
+                                                </form>
+                                            </div>
                                         @endguest
                                     @endif
                                 </div>
