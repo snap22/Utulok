@@ -41,7 +41,15 @@
                                     </div>
                                     
                                 @else
-                                    <a href="{{ route('public.adoptions.create', ['dogId' => $dog->dog_id]) }}" class="btn btn-lg contact-button">Chcem ho!</a>
+                                    @guest
+                                        <div class="text-center text-light">
+                                           <h4> O chlpáča ešte neprejavil nikto záujem! <a class="text text-highlight text-none" href="{{ route('login') }}"> Prihlás sa </a> a môže byť tvoj! </h4>
+                                        </div>
+                                    @else
+                                        <form action="" method="POST"> 
+                                            <button class="btn btn-lg btn-warning contact-button" type="button" onclick="sendRequest(this, '')">Chcem ho!</button>  
+                                        </form>
+                                    @endguest
                                 @endif
                             </div>
                         </div>
