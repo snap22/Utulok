@@ -226,38 +226,35 @@ function loadData(button)
     pageNum++;
 }
 
-// <button type="button" onclick="sendRequest(this)" class="contact-button"> AJAX Send </button> <br>  
-// function sendRequest(button)
-// {
-//     button.addEventListener("click", function(event)
-//     {
-//         event.preventDefault();
-//     });
+function sendRequest(button, dogId)
+{
+    button.addEventListener("click", function(event)
+    {
+        event.preventDefault();
+    });
 
-//     var token = document.getElementsByName('_token')[0].value;
+    var div = document.getElementById("dogStatusInfo");
 
-//     var xhttp = new XMLHttpRequest();
-//     xhttp.open("POST", "contact/ajax");
-//     xhttp.onreadystatechange = function() 
-//     {
-//         if (xhttp.readyState == 4 && xhttp.status == 200) 
-//         {
-//             // var data = JSON.parse(xhttp.responseText)
-//             // console.log(data['msg']);
-//             console.log(xhttp.responseText);
-//         }
-//      }
+    var token = document.getElementsByName('_token')[0].value;
 
-//     var title = document.getElementsByName("contact_title")[0].value;
-//     var email = document.getElementsByName("contact_email")[0].value;
-//     var message = document.getElementsByName("contact_message")[0].value;
+    var xmlhttp = new XMLHttpRequest();
 
-//     var params = "contact_title=" + title + "&contact_email=" + email + "&contact_message=" + message;
+   
+    xmlhttp.onreadystatechange = function() 
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+        {
+            button.style.display = "none";
+            div.innerHTML = xmlhttp.responseText;
+        }
+     }
 
-//     xhttp.open("post", "contact/ajax");
-//     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//     xhttp.setRequestHeader('X-CSRF-TOKEN', token);
+    var params = "dog_id=" + dogId;
+
+    xmlhttp.open("post", "adopt");
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.setRequestHeader('X-CSRF-TOKEN', token);
     
-//     xhttp.send(params);
-//     console.log("Odoslalo sa: " + params);
-// }
+    xmlhttp.send(params);
+    console.log("Odoslalo sa: " + params);
+}
