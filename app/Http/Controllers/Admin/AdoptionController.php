@@ -29,16 +29,6 @@ class AdoptionController extends Controller
         return view('admin.adoption.view', ['adoption' => $adoption, 'dog' => $dog, 'account' => $account]);
     }
 
-    public function create($dogId)
-    {
-        $dog = Dog::findOrFail($dogId);
-        if ($dog->is_adopted)
-        {
-            return redirect(route('public.dogs.view', ['dogId' => $dogId]))->with('error', 'Tento pes je nedostupný');
-        }
-        return view('public.adoption.create', ['dog' => $dog]);
-    }
-
     public function store(StoreAdoptionRequest $request)
     {
         $validated = $request->validated(); 
