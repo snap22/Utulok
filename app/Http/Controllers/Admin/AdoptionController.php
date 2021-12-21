@@ -44,12 +44,13 @@ class AdoptionController extends Controller
         $validated = $request->validated(); 
         if ( Dog::find($validated['dog_id'])->is_adopted )
         {
-            abort(400, 'Bad request.');
+            return response("Chlpáč je už obsadený! ", 400);
         }
 
         $validated['account_id'] = Auth::user()->account_id;
         Adoption::create($validated);
-        return redirect(route('public.dogs.view.all'))->with('success', 'Adopcia prebehla úspešne!');
+
+        return response("Záznam bol uložený!", 200);
     }
 
     public function destroy($adoptionId)
