@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Address;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Model;
-use App\Models\Address;
 
 
 class Account extends Authenticatable
@@ -42,7 +43,7 @@ class Account extends Authenticatable
     // Mutator
     public function setPasswordAttribute($password)
     {
-        $this->attributes['password'] = bcrypt($password);
+        $this->attributes['password'] = Hash::make($password);
     }
 
     public function getIsAdminAttribute()
