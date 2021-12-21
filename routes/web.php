@@ -4,11 +4,12 @@ use App\Http\Controllers\User\AccountController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\DogController;
 use App\Http\Controllers\User\AdressController;
+use App\Http\Controllers\User\AdoptionController;
 
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\BreedController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\AdoptionController;
+use App\Http\Controllers\Admin\AdoptionController as AdminAdoptionController;
 use App\Http\Controllers\Admin\AccountController as AdminAccController;
 use App\Http\Controllers\Admin\DogController as AdminDogController;
 
@@ -102,6 +103,6 @@ Route::get('/admin/contacts/{contactId}/solve', [ContactController::class, 'solv
 
 // Adoptions
 
-Route::get('/admins/adoptions', [AdoptionController::class, 'viewAll'])->middleware('admin')->name('adoptions.view.all');
-Route::get('/admins/adoptions/{adoptionId}', [AdoptionController::class, 'view'])->middleware('admin')->where('adoptionId', '[0-9]+')->name('adoptions.view');
-Route::delete('/admins/adoptions/{adoptionId}', [AdoptionController::class, 'destroy'])->middleware('admin')->where('adoptionId', '[0-9]+')->name('adoptions.delete');
+Route::get('/admins/adoptions', [AdminAdoptionController::class, 'viewAll'])->middleware('admin')->name('adoptions.view.all');
+Route::get('/admins/adoptions/{adoptionId}', [AdminAdoptionController::class, 'view'])->middleware('admin')->where('adoptionId', '[0-9]+')->name('adoptions.view');
+Route::delete('/admins/adoptions/{adoptionId}', [AdminAdoptionController::class, 'destroy'])->middleware('admin')->where('adoptionId', '[0-9]+')->name('adoptions.delete');
