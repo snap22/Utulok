@@ -23,7 +23,7 @@ class DogController extends Controller
             else
             {
                 $hasNextPage = $request->get('page') < $dogs->lastPage();
-                $view = view('public.dog.load-more', ['dogs' => $dogs])->render();
+                $view = view('components.public.dogs', ['dogs' => $dogs])->render();
                 return response()->json(['html' => $view, 'hasNextPage' => $hasNextPage]);
             } 
         }
