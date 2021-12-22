@@ -80,6 +80,24 @@
                 </div>
             </div>
             </div>
+
+            <div class="card front-card-dark">
+            <div class="card-body">
+                <h5 class="card-title">Chlpáči, ktorí Vás zaujali</h5>
+                <p class="card-text">
+                    @foreach($dogs as $dog)
+                        <div class="text-highlight mt-1">
+                            <i class="fa fa-paw"></i> <a href="{{ route('public.dogs.view', ['dogId' => $dog->dog_id] ) }}" class="text-highlight text-none"> {{ $dog->name }} </a>
+                        </div>        
+                    @endforeach
+                </p>
+            
+
+            </div>
+         </div>
+
+
+
     </div>
 </div>
 
