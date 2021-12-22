@@ -47,6 +47,10 @@
     color: #ffaa5a;
 }
 
+.text-highlight a:hover {
+    color: #dfe6e9;
+}
+
 .front-title {
     margin-top: 20px;
     text-align: center;
