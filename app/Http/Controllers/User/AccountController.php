@@ -6,6 +6,7 @@ use App\Models\Account;
 
 use App\Models\Address;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -64,7 +65,20 @@ class AccountController extends Controller
     {
         $user = Auth::user();
         $address = Address::where('account_id', '=', $user->account_id)->first();
-        return view('public.account.profile-view', ['user' => $user, 'address' => $address]);
+        $dogs = DB::select(
+            "SELECT dog_id, name
+            FROM dog
+            WHERE dog_id IN
+            (
+                SELECT dog_id 
+                FROM adoption
+                WHERE account_id = :current_user_id
+            );"
+        , ['current_user_id' => $user->account_id ]
+
+        );
+
+        return view('public.account.profile-view', ['user' => $user, 'address' => $address, 'dogs'=> $dogs]);
     }
 
     public function edit()
