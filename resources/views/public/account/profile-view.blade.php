@@ -56,6 +56,7 @@
                                     Číslo domu:  {{ $address->house_number }} <br>
                                     Mesto: {{ $address->city }} <br>
                                     PSČ: {{ $address->zip_code }} <br>
+                                    <small><i class="text-muted"> {{ $address->additional_info }} </i> </small>
                                 @else
                                     Nemáte pridanú žiadnu adresu.
                                 @endif
