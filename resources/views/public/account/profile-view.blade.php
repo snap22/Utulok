@@ -56,7 +56,7 @@
                                     Číslo domu:  {{ $address->house_number }} <br>
                                     Mesto: {{ $address->city }} <br>
                                     PSČ: {{ $address->zip_code }} <br>
-                                    <small><i class="text-muted"> {{ $address->additional_info }} </i> </small>
+                                    <small><i class="text-muted"> {{  $address->additional_info }} </i> </small>
                                 @else
                                     Nemáte pridanú žiadnu adresu.
                                 @endif
@@ -80,9 +80,9 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
 
-            <div class="card front-card-dark">
+        <div class="card front-card-dark">
             <div class="card-body">
                 <h5 class="card-title">Chlpáči, ktorí Vás zaujali</h5>
                 <p class="card-text">
@@ -92,12 +92,8 @@
                         </div>        
                     @endforeach
                 </p>
-            
-
             </div>
-         </div>
-
-
+        </div>
 
     </div>
 </div>
