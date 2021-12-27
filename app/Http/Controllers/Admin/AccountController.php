@@ -46,7 +46,7 @@ class AccountController extends Controller
     {
         if (auth()->user()->account_id == $accountId)
         {
-            abort(500);
+            abort(500, 'Nie je možné zmazať samého seba v admin paneli!');
         }
 
         $user = Account::findOrFail($accountId);

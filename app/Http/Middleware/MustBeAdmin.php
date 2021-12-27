@@ -18,7 +18,7 @@ class MustBeAdmin
     {
         if (auth()->guest() || auth()->user()->account_role !== 'A')
         {
-            abort(403);
+            abort(403, 'Nepostačujúce práva!');
         }
 
         return $next($request);

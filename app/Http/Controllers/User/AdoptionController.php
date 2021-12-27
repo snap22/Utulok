@@ -30,7 +30,7 @@ class AdoptionController extends Controller
         $adoption = Adoption::where('dog_id', '=', $dogId)->firstOrFail();
         if ($adoption->account_id != Auth::user()->account_id)
         {
-            abort(400);
+            abort(400, 'Nie je možné zrušiť záujem iného užívateľa');
         }
         $adoption->delete();
         return response("Záznam bol zrušený!", 200);
