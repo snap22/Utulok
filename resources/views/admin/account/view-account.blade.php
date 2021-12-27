@@ -22,10 +22,6 @@
           
               </div>
           </div>
-          
-
-          
-
           <div class="divider"></div>
           <div class="">
             <div class="">
@@ -97,9 +93,6 @@
             @endif
           </div>
         </div>
-        <!-- <div class="card-action">
-          <a href="#">This is a link</a>
-        </div> -->
       </div>
     </div>
   </div>
