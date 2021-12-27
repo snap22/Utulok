@@ -1,8 +1,7 @@
 @extends('layouts.basic')
 
 @section('body')
-    <div class="text-center">
-        <h1 class="display-1 text-danger"> 500 </h1> <br>
-        <h2 class="display-4">Ajaj! Nastala chyba zo strany servera {{ $exception->getMessage() }}</h2>
-    </div>
+
+    <x-error code="500" message="Ajaj! Nastala chyba zo strany servera. {{ $exception->getMessage() }}" />
+    
 @endsection

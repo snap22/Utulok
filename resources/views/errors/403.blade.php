@@ -1,5 +1,7 @@
-@extends('errors::minimal')
+@extends('layouts.basic')
 
-@section('title', __('Forbidden'))
-@section('code', '403')
-@section('message', __($exception->getMessage() ?: 'Forbidden'))
+@section('body')
+
+    <x-error code="403" message="Ajaj! Nastala chyba. {{ $exception->getMessage() }}" />
+    
+@endsection

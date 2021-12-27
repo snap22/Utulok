@@ -1,8 +1,7 @@
 @extends('layouts.basic')
 
 @section('body')
-    <div class="text-center">
-        <h1 class="display-1 text-danger"> 401 </h1> <br>
-        <h2 class="display-4">Ajaj! Nastala chyba {{ $exception->getMessage() }}</h2>
-    </div>
+
+    <x-error code="401" message="Ajaj! Nastala chyba. {{ $exception->getMessage() }}" />
+    
 @endsection
