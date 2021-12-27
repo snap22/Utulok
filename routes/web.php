@@ -106,3 +106,11 @@ Route::get('/admin/contacts/{contactId}/solve', [ContactController::class, 'solv
 Route::get('/admins/adoptions', [AdminAdoptionController::class, 'viewAll'])->middleware('admin')->name('adoptions.view.all');
 Route::get('/admins/adoptions/{adoptionId}', [AdminAdoptionController::class, 'view'])->middleware('admin')->where('adoptionId', '[0-9]+')->name('adoptions.view');
 Route::delete('/admins/adoptions/{adoptionId}', [AdminAdoptionController::class, 'destroy'])->middleware('admin')->where('adoptionId', '[0-9]+')->name('adoptions.delete');
+
+
+
+
+Route::fallback(function() 
+{ 
+    return response()->view('errors.404', [], 404); 
+});
