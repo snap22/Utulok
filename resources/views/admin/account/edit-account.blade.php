@@ -49,15 +49,9 @@
                 <i class="material-icons right">cancel</i>
               </a>
               
-          </form>
-          
-
-          
+          </form>  
         </div>
       </div>
-
-      
-      
     </div>
   </div>
 
