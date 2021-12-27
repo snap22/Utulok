@@ -22,4 +22,6 @@ class Adoption extends Model
         'adoption_id',
         'date_adopted',
     ];
+
+    protected $dates= ['date_adopted'];
 }

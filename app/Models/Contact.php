@@ -25,4 +25,6 @@ class Contact extends Model
         'contact_id',
         
     ];
+
+    protected $dates= ['date_created'];
 }

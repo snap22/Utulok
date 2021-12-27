@@ -40,6 +40,8 @@ class Account extends Authenticatable
         'account_role',
     ];
 
+    protected $dates = ['date_created'];
+
     // Mutator
     public function setPasswordAttribute($password)
     {
