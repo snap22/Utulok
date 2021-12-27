@@ -23,7 +23,7 @@
         @foreach ($adoptions as $adoption)
         <tr>
             <td > {{ $adoption->adoption_id }} </td>
-            <td> {{ $adoption->date_adopted }} </td>
+            <td> {{ $adoption->date_adopted->format("d .m. Y  H:i") }} </td> 
             <td class="right-align">
                 <x-admin.controls.controls-all 
                     :viewLink="route('adoptions.view', ['adoptionId' => $adoption->adoption_id])" 

@@ -52,7 +52,7 @@
                 </tr>
                 <tr>
                   <td> <b> Dátum vytvorenia účtu </b> </td>
-                  <td> {{ $user->date_created}} </td>
+                  <td> {{ $user->date_created->format("d .m. Y")}} </td>
                 </tr>
                 <tr>
                   <td> <b> Rola </b> </td>

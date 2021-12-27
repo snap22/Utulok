@@ -30,7 +30,7 @@
                     <a href="{{ route('contacts.view', ['contactId' => $contact->contact_id ]) }}" class="black-text"> {{ $contact->contact_title }} </a> 
                 @endif
             </td>
-            <td> {{ $contact->date_created }} </td>
+            <td> {{ $contact->date_created->format("d .m. Y  H:i") }} </td>
             <td class="right-align">
                 <x-admin.controls.controls-all 
                     :viewLink="route('contacts.view', ['contactId' => $contact->contact_id])" 
