@@ -16,9 +16,9 @@ class DogController extends Controller
 {
     private $pictures;
     
-    public function __construct()
+    public function __construct(PictureRepository $repo)
     {
-        $this->pictures = new PictureRepository();
+        $this->pictures = $repo;
     }
 
     public function view($dogId)
