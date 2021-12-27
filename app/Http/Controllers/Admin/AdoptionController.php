@@ -13,7 +13,7 @@ class AdoptionController extends Controller
 {
     public function viewAll()
     {
-        $adoptions = Adoption::orderBy('adoption_id')->paginate(10);
+        $adoptions = Adoption::orderBy('date_adopted', 'DESC')->paginate(10);
 
         return view('admin.adoption.view-all', ['adoptions' => $adoptions]);
     }
