@@ -14,5 +14,5 @@ Jednoduchá webová aplikácia pre správu útulku. Bežný užívateľ si môž
 
 ### Použité nástroje
 
-HTML, CSS, Boostrap, Materialize, JS, Laravel
+HTML, CSS, Boostrap, Materialize, JS, Laravel, PostgreSQL
 
