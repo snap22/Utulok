@@ -15,6 +15,7 @@
     <tr>
         <th>ID</th>
         <th>Dátum</th>
+        <th></th>
     </tr>
     </thead>
 

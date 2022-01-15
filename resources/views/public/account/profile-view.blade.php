@@ -15,7 +15,7 @@
             <div class="card front-card-dark">
             <div class="card-body">
                 <h5 class="card-title">Kontaktné údaje</h5>
-                <p class="card-text">
+                <div class="card-text">
                     <div class="row">
                         <div class="col-sm">
                             <p>
@@ -27,7 +27,7 @@
                         </div>
 
                     </div>
-                </p>
+                </div>
                 <div class="row mt-2">
                     <div class="col-sm">
                         <form method="POST" action="/profile">
@@ -47,7 +47,7 @@
         <div class="card mt-3 front-card-dark">
             <div class="card-body">
                 <h5 class="card-title">Adresa</h5>
-                <p class="card-text">
+                <div class="card-text">
                     <div class="row">
                         <div class="col-sm">
                             <p>
@@ -64,7 +64,7 @@
                         </div>
 
                     </div>
-                </p>
+                </div>
                 <div class="row mt-2">
                     <div class="col-sm">
                         @if ( isset($address) )
@@ -85,13 +85,13 @@
         <div class="card front-card-dark">
             <div class="card-body">
                 <h5 class="card-title">Chlpáči, ktorí Vás zaujali</h5>
-                <p class="card-text">
+                <div class="card-text">
                     @foreach($dogs as $dog)
                         <div class="text-highlight mt-1">
                             <i class="fa fa-paw"></i> <a href="{{ route('public.dogs.view', ['dogId' => $dog->dog_id] ) }}" class="text-highlight text-none"> {{ $dog->name }} </a>
                         </div>        
                     @endforeach
-                </p>
+                </div>
             </div>
         </div>
 

@@ -12,7 +12,7 @@
               
               <x-admin.admin-input name="name" :value="old('name', '')" label="Názov"   />
               
-              <button class="btn waves-effect waves-light green" type="submit" name="">Pridať
+              <button class="btn waves-effect waves-light green" type="submit">Pridať
                 <i class="material-icons right">check</i>
               </button>
 

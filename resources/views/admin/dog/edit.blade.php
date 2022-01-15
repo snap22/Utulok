@@ -44,7 +44,7 @@
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>Obrázok</span>
-                        <input type="file" name="picture" value="{{ old('picture', $dog->picture) }}">
+                        <input type="file" name="picture">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" value="{{ $dog->picture }}">
@@ -55,14 +55,14 @@
                 </div>
 
                 <div class="input-field ">
-                    <textarea name="info" class="materialize-textarea">{{ old('info', $dog->info) }}</textarea>
+                    <textarea name="info" id="info" class="materialize-textarea">{{ old('info', $dog->info) }}</textarea>
                     <label for="info">Dodatočné informácie</label>
                 </div>
                 @error( 'info' )
                     <span class="helper-text red-text">{{ $message }}</span>
                 @enderror
 
-              <button class="btn waves-effect waves-light green" type="submit" name="">Uložiť
+              <button class="btn waves-effect waves-light green" type="submit">Uložiť
                 <i class="material-icons right">check</i>
               </button>
               <a href="{{ route('dogs.view.all') }}" class="btn waves-effect waves-light deep-orange">Zrušiť

@@ -20,6 +20,7 @@
     <tr>
         <th>ID</th>
         <th>Meno</th>
+        <th></th>
     </tr>
     </thead>
 

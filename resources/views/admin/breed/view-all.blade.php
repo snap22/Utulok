@@ -20,6 +20,7 @@
     <tr>
         <th>ID</th>
         <th>Názov</th>
+        <th></th>
     </tr>
     </thead>
 

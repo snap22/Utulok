@@ -46,14 +46,14 @@
                 </div>
 
                 <div class="input-field ">
-                    <textarea name="info" class="materialize-textarea"></textarea>
+                    <textarea name="info" id="info" class="materialize-textarea"></textarea>
                     <label for="info">Dodatočné informácie</label>
                 </div>
                 @error( 'info' )
                     <span class="helper-text red-text">{{ $message }}</span>
                 @enderror
 
-              <button class="btn waves-effect waves-light green" type="submit" name="">Pridať
+              <button class="btn waves-effect waves-light green" type="submit">Pridať
                 <i class="material-icons right">check</i>
               </button>
               <a href="{{ route('dogs.view.all') }}" class="btn waves-effect waves-light deep-orange">Zrušiť

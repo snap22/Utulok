@@ -57,7 +57,7 @@
                 
                 
               </table>
-              <img class="responsive-img materialboxed" width="200px"  height="200px" src="{{ asset('storage/' . $dog->picture) }}" alt="Obrázok psa">
+              <img class="responsive-img materialboxed" width="200"  height="200" src="{{ asset('storage/' . $dog->picture) }}" alt="Obrázok psa">
             </div> 
             
 

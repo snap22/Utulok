@@ -3,6 +3,7 @@
 <div class="input-field">
     <input 
         name="{{ $name }}" 
+        id="{{ $name }}"
         type="{{ $type }}" 
         value="{{ $value }}"
         class="validate"

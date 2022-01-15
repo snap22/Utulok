@@ -42,7 +42,7 @@
               @endif
               
 
-              <button class="btn waves-effect waves-light green" type="submit" name="">Uložiť
+              <button class="btn waves-effect waves-light green" type="submit">Uložiť
                 <i class="material-icons right">check</i>
               </button>
               <a href="{{ route('accounts.view.all') }}" class="btn waves-effect waves-light deep-orange">Zrušiť

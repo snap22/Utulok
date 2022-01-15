@@ -17,6 +17,7 @@
         <th>Meno</th>
         <th>Priezvisko</th>
         <th></th>
+        <th></th>
     </tr>
     </thead>
 
