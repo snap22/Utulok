@@ -2,18 +2,25 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Dog;
 use App\Models\Account;
 use App\Models\Adoption;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 
 class AdoptionController extends Controller
 {
     public function viewAll()
     {
-        $adoptions = Adoption::orderBy('date_adopted', 'DESC')->paginate(10);
+        $adoptions = DB::table('adoption')
+                        ->join('dog', 'adoption.dog_id', '=', 'dog.dog_id')
+                        ->join('account', 'adoption.account_id', '=', 'account.account_id')
+                        ->orderBy('adoption.date_adopted', 'DESC')
+                        ->select('adoption.adoption_id', 'account.first_name', 'account.last_name' ,'dog.name' ,'adoption.date_adopted')
+                        ->paginate(10);
+
 
         return view('admin.adoption.view-all', ['adoptions' => $adoptions]);
     }
