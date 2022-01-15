@@ -4,8 +4,8 @@
 @section('title', 'Contact')
 
 @section('body')
-<div class="container-fluid landing-page-block-dark">
-    <div class="container-sm">
+<div class="container-fluid landing-page-block-dark pb-5">
+    <div class="container-sm pb-4 mt-3">
         <div class="row">
             <div class="col-sm">
                 <div class="card contact-card">
