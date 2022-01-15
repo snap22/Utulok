@@ -14,6 +14,8 @@
     <thead>
     <tr>
         <th>ID</th>
+        <th>Žiadateľ</th>
+        <th>Pes</th>
         <th>Dátum</th>
         <th></th>
     </tr>
@@ -24,7 +26,9 @@
         @foreach ($adoptions as $adoption)
         <tr>
             <td > {{ $adoption->adoption_id }} </td>
-            <td> {{ $adoption->date_adopted->format("d .m. Y  H:i") }} </td> 
+            <td > {{ $adoption->first_name . ' ' . $adoption->last_name }} </td>
+            <td > {{ $adoption->name }} </td>
+            <td> {{ date('d .m. Y  H:i', strtotime($adoption->date_adopted)) }} </td> 
             <td class="right-align">
                 <x-admin.controls.controls-all 
                     :viewLink="route('adoptions.view', ['adoptionId' => $adoption->adoption_id])" 
