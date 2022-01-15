@@ -30,7 +30,7 @@ function validateZip(element)
 
     if (!zipRegex.test(zip))
     {
-        error.addError("Zip code should contain 5 digits.")
+        error.addError("Zip code should contain 5 digits.");
     }
     error.showErrors(element.nextElementSibling.firstElementChild);
 }
@@ -81,7 +81,7 @@ function validatePhoneNumber(element)
 
     if (phoneNumber.length > 0 &&  ! phoneRegex.test(phoneNumber))
     {
-        error.addError("Please input your phone number in XXXX XXX XXX or +XXX XXX XXX XXX format where X is a number")
+        error.addError("Please input your phone number in XXXX XXX XXX or +XXX XXX XXX XXX format where X is a number");
     }
 
     element.value = phoneNumber;
@@ -201,19 +201,19 @@ function loadData(button)
     var xmlhttp = new XMLHttpRequest();
     // xmlhttp.responseType = "json";
 
-    div = document.getElementById("dogsDiv");
+    let div = document.getElementById("dogsDiv");
 
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {   // XMLHttpRequest.DONE == 4
-            var data = JSON.parse(xmlhttp.responseText)
+            var data = JSON.parse(xmlhttp.responseText);
 
-            if (data['hasNextPage'] === false)
+            if (data.hasNextPage === false)
             {
                 button.disabled = true;
                 button.style.display = "none";
             }
 
-            div.innerHTML += data['html'];
+            div.innerHTML += data.html;
         }
     };
     
@@ -242,7 +242,7 @@ function sendRequest(button, dogId)
             button.style.display = "none";
             div.innerHTML = xmlhttp.responseText;
         }
-     }
+     };
 
     var params = "dog_id=" + dogId;
 
@@ -271,7 +271,7 @@ function sendDeleteRequest(button, dogId)
             button.style.display = "none";
             div.innerHTML = xmlhttp.responseText;
         }
-     }
+     };
 
     var params = "dog_id=" + dogId;
 
