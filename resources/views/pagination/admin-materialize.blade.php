@@ -3,7 +3,7 @@
     <ul class="pagination">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-            <li class="disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
+            <li class="disabled" aria-disabled="true" >
                 <a href="{{ $paginator->previousPageUrl() }}" >
                     <i class="material-icons">chevron_left</i>
                 </a>
