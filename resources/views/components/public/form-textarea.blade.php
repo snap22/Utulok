@@ -1,10 +1,10 @@
 @props(['name', 'value' => '', 'type' => 'text', 'placeholder'])
 
-<div class="">
+<div>
   <textarea class="form-control" 
         name="{{ $name }}" 
+        id="{{ $name}}"
         placeholder="{{ $placeholder }}" 
-        value="{{ $value }}"
         {{ $attributes->merge(['class' => "form-control"]) }} 
   >{{ $value }}</textarea>
     

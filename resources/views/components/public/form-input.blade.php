@@ -10,6 +10,7 @@
 @endif
 <input  name="{{ $name }}" 
         type="{{ $type }}" 
+        id="{{ $name }}"
         placeholder="{{ $placeholder }}" 
         value="{{ $value }}"
         {{ $attributes->merge(['class' => "form-control"]) }} >
